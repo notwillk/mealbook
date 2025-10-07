@@ -1,0 +1,6 @@
+{
+  "yaml.schemas": {
+    "https://schema.org/Recipe": ["*.recipe.yml", "*.recipe.yaml"],
+    "https://schema.org/Menu": ["*.menu.yml", "*.menu.yaml"]
+  }
+}
