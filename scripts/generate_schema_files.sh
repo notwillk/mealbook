@@ -236,7 +236,6 @@ const buildMealbookRecipeSchema = () => ({
           {
             "type": "object",
             "required": [
-              "@type",
               "name"
             ],
             "properties": {

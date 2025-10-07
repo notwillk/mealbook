@@ -156,7 +156,6 @@
           {
             "type": "object",
             "required": [
-              "@type",
               "name"
             ],
             "properties": {

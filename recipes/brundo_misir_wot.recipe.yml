@@ -19,36 +19,34 @@ cookTime: PT40M
 totalTime: PT1H15M
 url: https://www.brundo.com/blogs/recipes/how-to-cook-ethiopian-misser-wot-red-lentils
 recipeIngredient:
-  - "@type": "PropertyValue"
-    value: 2
+  - value: 2
     name: red onions, minced
-  - "@type": "PropertyValue"
-    value: 2-3 tablespoons
+  - value: 2-3
+    unitCode: tablespoons
     name: garlic, minced
-  - "@type": "PropertyValue"
-    value: 1/2 cup
+  - value: 1/2
+    unitCode: cup
     name: neutral oil (vegetable or canola)
-  - "@type": "PropertyValue"
-    value: 1 pound
+  - value: 1
+    unitCode: pound
     name: red split lentils
-  - "@type": "PropertyValue"
-    value: 4 cups
+  - value: 4
+    unitCode: cups
     name: warm water, plus more as needed
-  - "@type": "PropertyValue"
-    value: 1 teaspoon
+  - value: 1
+    unitCode: teaspoon
     name: Makulaya spice blend
-  - "@type": "PropertyValue"
-    value: 1 teaspoon
+  - value: 1
+    unitCode: teaspoon
     name: Mekelesha spice blend
-  - "@type": "PropertyValue"
-    value: 1/2 cup
+  - value: 1/2
+    unitCode: cup
     name: berbere
-  - "@type": "PropertyValue"
-    value: 1/2 teaspoon
+  - value: 1/2
+    unitCode: teaspoon
     name: freshly ground black pepper
   - Kosher salt, to taste
-  - "@type": "PropertyValue"
-    value: 1
+  - value: 1
     name: jalapeño, sliced and seeded, for garnish (optional)
 recipeInstructions:
   - Wash lentils in hot water until the water runs clear, then soak 30 minutes. Strain.
