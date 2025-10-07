@@ -120,7 +120,6 @@
         {
           "type": "object",
           "required": [
-            "@type",
             "name"
           ],
           "properties": {
@@ -201,7 +200,6 @@
               {
                 "type": "object",
                 "required": [
-                  "@type",
                   "text"
                 ],
                 "properties": {
@@ -232,9 +230,7 @@
     },
     "nutrition": {
       "type": "object",
-      "required": [
-        "@type"
-      ],
+      "required": [],
       "properties": {
         "@type": {
           "type": "string",
@@ -280,7 +276,6 @@
     "interactionStatistic": {
       "type": "object",
       "required": [
-        "@type",
         "userInteractionCount"
       ],
       "properties": {
@@ -303,7 +298,6 @@
     "aggregateRating": {
       "type": "object",
       "required": [
-        "@type",
         "ratingValue"
       ],
       "properties": {

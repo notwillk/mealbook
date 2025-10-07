@@ -200,7 +200,6 @@ const buildMealbookRecipeSchema = () => ({
         {
           "type": "object",
           "required": [
-            "@type",
             "name"
           ],
           "properties": {
@@ -281,7 +280,6 @@ const buildMealbookRecipeSchema = () => ({
               {
                 "type": "object",
                 "required": [
-                  "@type",
                   "text"
                 ],
                 "properties": {
@@ -312,9 +310,7 @@ const buildMealbookRecipeSchema = () => ({
     },
     "nutrition": {
       "type": "object",
-      "required": [
-        "@type"
-      ],
+      "required": [],
       "properties": {
         "@type": {
           "type": "string",
@@ -360,7 +356,6 @@ const buildMealbookRecipeSchema = () => ({
     "interactionStatistic": {
       "type": "object",
       "required": [
-        "@type",
         "userInteractionCount"
       ],
       "properties": {
@@ -383,7 +378,6 @@ const buildMealbookRecipeSchema = () => ({
     "aggregateRating": {
       "type": "object",
       "required": [
-        "@type",
         "ratingValue"
       ],
       "properties": {
@@ -503,7 +497,7 @@ const buildMealbookMenuSchema = () => ({
     },
     "MenuSection": {
       "type": "object",
-      "required": ["@type", "name"],
+      "required": ["name"],
       "properties": {
         "@type": {
           "type": "string",
@@ -558,7 +552,7 @@ const buildMealbookMenuSchema = () => ({
     },
     "MenuItem": {
       "type": "object",
-      "required": ["@type", "name"],
+      "required": ["name"],
       "properties": {
         "@type": {
           "type": "string",
@@ -616,7 +610,7 @@ const buildMealbookMenuSchema = () => ({
     },
     "Restaurant": {
       "type": "object",
-      "required": ["@context", "@type", "name", "hasMenu"],
+      "required": ["@context", "name", "hasMenu"],
       "properties": {
         "@context": {
           "type": "string",
@@ -684,7 +678,7 @@ const buildMealbookMenuSchema = () => ({
     },
     "Offer": {
       "type": "object",
-      "required": ["@type"],
+      "required": [],
       "properties": {
         "@type": {
           "type": "string",
@@ -710,7 +704,7 @@ const buildMealbookMenuSchema = () => ({
     },
     "NutritionInformation": {
       "type": "object",
-      "required": ["@type"],
+      "required": [],
       "properties": {
         "@type": {
           "type": "string",

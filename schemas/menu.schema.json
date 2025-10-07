@@ -106,7 +106,6 @@
     "MenuSection": {
       "type": "object",
       "required": [
-        "@type",
         "name"
       ],
       "properties": {
@@ -174,7 +173,6 @@
     "MenuItem": {
       "type": "object",
       "required": [
-        "@type",
         "name"
       ],
       "properties": {
@@ -240,7 +238,6 @@
       "type": "object",
       "required": [
         "@context",
-        "@type",
         "name",
         "hasMenu"
       ],
@@ -315,9 +312,7 @@
     },
     "Offer": {
       "type": "object",
-      "required": [
-        "@type"
-      ],
+      "required": [],
       "properties": {
         "@type": {
           "type": "string",
@@ -346,9 +341,7 @@
     },
     "NutritionInformation": {
       "type": "object",
-      "required": [
-        "@type"
-      ],
+      "required": [],
       "properties": {
         "@type": {
           "type": "string",
