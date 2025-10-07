@@ -51,11 +51,20 @@ for (const f of fs.readdirSync(REPO_DIR)) {
   const p = path.join(REPO_DIR, f);
   try {
     const j = JSON.parse(fs.readFileSync(p, "utf8"));
-    if (j.$id) index.set(j.$id, p);
+    if (j.$id) {
+      index.set(j.$id, p);
+      if (j.$id.startsWith("https://schema.org/")) {
+        const name = j.$id.slice("https://schema.org/".length);
+        index.set(`schema:${name}`, p);
+        index.set(`schema:${name.toLowerCase()}`, p);
+      }
+    }
   } catch {}
   const base = path.basename(f, ".json");
   index.set(base, p);
   index.set(base.toLowerCase(), p);
+  index.set(`schema:${base}`, p);
+  index.set(`schema:${base.toLowerCase()}`, p);
 }
 
 // Custom resolver for schema:* URIs
@@ -407,6 +416,325 @@ const buildMealbookRecipeSchema = () => ({
   }
 });
 
+const buildMealbookMenuSchema = () => ({
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://notwillk.mealbook/schemas/menu.schema.json",
+  "title": "Mealbook Menu or Restaurant",
+  "description": "Allows either a schema.org Menu object or a Restaurant with embedded Menu data.",
+  "type": "object",
+  "oneOf": [
+    {
+      "allOf": [
+        {
+          "properties": {
+            "@context": {
+              "type": "string",
+              "const": "https://schema.org"
+            }
+          },
+          "required": ["@context"]
+        },
+        { "$ref": "#/$defs/Menu" }
+      ]
+    },
+    { "$ref": "#/$defs/Restaurant" }
+  ],
+  "$defs": {
+    "Menu": {
+      "type": "object",
+      "required": ["@type", "hasMenuSection"],
+      "properties": {
+        "@context": {
+          "type": "string",
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "type": "string",
+          "const": "Menu"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "image": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "minItems": 1
+            }
+          ]
+        },
+        "inLanguage": {
+          "type": "string",
+          "minLength": 2
+        },
+        "hasMenuSection": {
+          "oneOf": [
+            { "$ref": "#/$defs/MenuSection" },
+            {
+              "type": "array",
+              "items": { "$ref": "#/$defs/MenuSection" },
+              "minItems": 1
+            }
+          ]
+        },
+        "hasMenuItem": {
+          "oneOf": [
+            { "$ref": "#/$defs/MenuItem" },
+            {
+              "type": "array",
+              "items": { "$ref": "#/$defs/MenuItem" },
+              "minItems": 1
+            }
+          ]
+        },
+        "offers": { "$ref": "#/$defs/Offer" }
+      },
+      "additionalProperties": false
+    },
+    "MenuSection": {
+      "type": "object",
+      "required": ["@type", "name"],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "MenuSection"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string"
+        },
+        "image": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "minItems": 1
+            }
+          ]
+        },
+        "offers": { "$ref": "#/$defs/Offer" },
+        "hasMenuItem": {
+          "oneOf": [
+            { "$ref": "#/$defs/MenuItem" },
+            {
+              "type": "array",
+              "items": { "$ref": "#/$defs/MenuItem" },
+              "minItems": 1
+            }
+          ]
+        },
+        "hasMenuSection": {
+          "oneOf": [
+            { "$ref": "#/$defs/MenuSection" },
+            {
+              "type": "array",
+              "items": { "$ref": "#/$defs/MenuSection" },
+              "minItems": 1
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "MenuItem": {
+      "type": "object",
+      "required": ["@type", "name"],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "MenuItem"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string"
+        },
+        "image": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "minItems": 1
+            }
+          ]
+        },
+        "nutrition": { "$ref": "#/$defs/NutritionInformation" },
+        "offers": { "$ref": "#/$defs/Offer" },
+        "suitableForDiet": {
+          "type": "string",
+          "anyOf": [
+            {
+              "enum": [
+                "DiabeticDiet",
+                "GlutenFreeDiet",
+                "HalalDiet",
+                "KosherDiet",
+                "LowCalorieDiet",
+                "LowFatDiet",
+                "LowLactoseDiet",
+                "LowSaltDiet",
+                "VeganDiet",
+                "VegetarianDiet"
+              ]
+            },
+            {
+              "pattern": "^https://schema\\.org/[^\\s]+$"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "Restaurant": {
+      "type": "object",
+      "required": ["@context", "@type", "name", "hasMenu"],
+      "properties": {
+        "@context": {
+          "type": "string",
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "type": "string",
+          "const": "Restaurant"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "image": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "minItems": 1
+            }
+          ]
+        },
+        "servesCuisine": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1
+            }
+          ]
+        },
+        "hasMenu": {
+          "oneOf": [
+            { "$ref": "#/$defs/Menu" },
+            {
+              "type": "array",
+              "items": { "$ref": "#/$defs/Menu" },
+              "minItems": 1
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "Offer": {
+      "type": "object",
+      "required": ["@type"],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "Offer"
+        },
+        "price": {
+          "type": ["string", "number"]
+        },
+        "priceCurrency": {
+          "type": "string",
+          "minLength": 1
+        },
+        "availabilityStarts": {
+          "type": "string",
+          "minLength": 1
+        },
+        "availabilityEnds": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "NutritionInformation": {
+      "type": "object",
+      "required": ["@type"],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "NutritionInformation"
+        },
+        "calories": {
+          "type": "string"
+        },
+        "fatContent": {
+          "type": "string"
+        },
+        "fiberContent": {
+          "type": "string"
+        },
+        "proteinContent": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+});
+
 (async () => {
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
@@ -415,6 +743,13 @@ const buildMealbookRecipeSchema = () => ({
 
     if (name === "Recipe") {
       const schema = buildMealbookRecipeSchema();
+      fs.writeFileSync(outPath, JSON.stringify(schema, null, 2) + "\n");
+      console.log("Wrote", outPath);
+      continue;
+    }
+
+    if (name === "Menu") {
+      const schema = buildMealbookMenuSchema();
       fs.writeFileSync(outPath, JSON.stringify(schema, null, 2) + "\n");
       console.log("Wrote", outPath);
       continue;

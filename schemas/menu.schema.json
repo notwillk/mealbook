@@ -1,43 +1,373 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "schema:Menu",
-  "title": "Menu",
-  "description": "A structured representation of food or drink items available from a FoodEstablishment.",
+  "$id": "https://notwillk.mealbook/schemas/menu.schema.json",
+  "title": "Mealbook Menu or Restaurant",
+  "description": "Allows either a schema.org Menu object or a Restaurant with embedded Menu data.",
   "type": "object",
-  "allOf": [
+  "oneOf": [
     {
-      "description": "The most generic kind of creative work, including books, movies, photographs, software programs, etc.",
-      "$ref": "schema:CreativeWork"
-    }
-  ],
-  "properties": {
-    "hasMenuItem": {
-      "description": "A food or drink item contained in a menu or menu section.",
-      "oneOf": [
+      "allOf": [
         {
-          "$ref": "schema:MenuItem"
+          "properties": {
+            "@context": {
+              "type": "string",
+              "const": "https://schema.org"
+            }
+          },
+          "required": [
+            "@context"
+          ]
         },
         {
-          "type": "array",
-          "items": {
-            "$ref": "schema:MenuItem"
-          }
+          "$ref": "#/$defs/Menu"
         }
       ]
     },
-    "hasMenuSection": {
-      "description": "A subgrouping of the menu (by dishes, course, serving time period, etc.).",
-      "oneOf": [
-        {
-          "$ref": "schema:MenuSection"
+    {
+      "$ref": "#/$defs/Restaurant"
+    }
+  ],
+  "$defs": {
+    "Menu": {
+      "type": "object",
+      "required": [
+        "@type",
+        "hasMenuSection"
+      ],
+      "properties": {
+        "@context": {
+          "type": "string",
+          "const": "https://schema.org"
         },
-        {
-          "type": "array",
-          "items": {
-            "$ref": "schema:MenuSection"
-          }
+        "@type": {
+          "type": "string",
+          "const": "Menu"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "image": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "minItems": 1
+            }
+          ]
+        },
+        "inLanguage": {
+          "type": "string",
+          "minLength": 2
+        },
+        "hasMenuSection": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/MenuSection"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/MenuSection"
+              },
+              "minItems": 1
+            }
+          ]
+        },
+        "hasMenuItem": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/MenuItem"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/MenuItem"
+              },
+              "minItems": 1
+            }
+          ]
+        },
+        "offers": {
+          "$ref": "#/$defs/Offer"
         }
-      ]
+      },
+      "additionalProperties": false
+    },
+    "MenuSection": {
+      "type": "object",
+      "required": [
+        "@type",
+        "name"
+      ],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "MenuSection"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string"
+        },
+        "image": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "minItems": 1
+            }
+          ]
+        },
+        "offers": {
+          "$ref": "#/$defs/Offer"
+        },
+        "hasMenuItem": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/MenuItem"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/MenuItem"
+              },
+              "minItems": 1
+            }
+          ]
+        },
+        "hasMenuSection": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/MenuSection"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/MenuSection"
+              },
+              "minItems": 1
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "MenuItem": {
+      "type": "object",
+      "required": [
+        "@type",
+        "name"
+      ],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "MenuItem"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string"
+        },
+        "image": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "minItems": 1
+            }
+          ]
+        },
+        "nutrition": {
+          "$ref": "#/$defs/NutritionInformation"
+        },
+        "offers": {
+          "$ref": "#/$defs/Offer"
+        },
+        "suitableForDiet": {
+          "type": "string",
+          "anyOf": [
+            {
+              "enum": [
+                "DiabeticDiet",
+                "GlutenFreeDiet",
+                "HalalDiet",
+                "KosherDiet",
+                "LowCalorieDiet",
+                "LowFatDiet",
+                "LowLactoseDiet",
+                "LowSaltDiet",
+                "VeganDiet",
+                "VegetarianDiet"
+              ]
+            },
+            {
+              "pattern": "^https://schema\\.org/[^\\s]+$"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "Restaurant": {
+      "type": "object",
+      "required": [
+        "@context",
+        "@type",
+        "name",
+        "hasMenu"
+      ],
+      "properties": {
+        "@context": {
+          "type": "string",
+          "const": "https://schema.org"
+        },
+        "@type": {
+          "type": "string",
+          "const": "Restaurant"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "image": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "minItems": 1
+            }
+          ]
+        },
+        "servesCuisine": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1
+            }
+          ]
+        },
+        "hasMenu": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/Menu"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Menu"
+              },
+              "minItems": 1
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "Offer": {
+      "type": "object",
+      "required": [
+        "@type"
+      ],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "Offer"
+        },
+        "price": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "priceCurrency": {
+          "type": "string",
+          "minLength": 1
+        },
+        "availabilityStarts": {
+          "type": "string",
+          "minLength": 1
+        },
+        "availabilityEnds": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "NutritionInformation": {
+      "type": "object",
+      "required": [
+        "@type"
+      ],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "NutritionInformation"
+        },
+        "calories": {
+          "type": "string"
+        },
+        "fatContent": {
+          "type": "string"
+        },
+        "fiberContent": {
+          "type": "string"
+        },
+        "proteinContent": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     }
   }
 }
