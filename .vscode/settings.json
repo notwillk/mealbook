@@ -1,6 +1,22 @@
 {
   "yaml.schemas": {
-    "https://schema.org/Recipe": ["*.recipe.yml", "*.recipe.yaml"],
-    "https://schema.org/Menu": ["*.menu.yml", "*.menu.yaml"]
-  }
+    "./schemas/recipe.schema.json": [
+      "**/*.recipe.yaml",
+      "**/*.recipe.yml"
+    ],
+    "./schemas/menu.schema.json": [
+      "**/*.menu.yaml",
+      "**/*.menu.yml"
+    ]
+  },
+  "json.schemas": [
+    {
+      "fileMatch": ["*.recipe.json"],
+      "url": "./schemas/recipe.schema.json"
+    },
+    {
+      "fileMatch": ["*.menu.json"],
+      "url": "./schemas/menu.schema.json"
+    }
+  ]
 }

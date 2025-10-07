@@ -1,0 +1,337 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://notwillk.mealbook/schemas/recipe.schema.json",
+  "title": "Mealbook Recipe",
+  "description": "Recipe definition for Mealbook files (JSON or YAML).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "@context",
+    "@type",
+    "name",
+    "description",
+    "recipeIngredient",
+    "recipeInstructions"
+  ],
+  "properties": {
+    "@context": {
+      "type": "string",
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "type": "string",
+      "const": "Recipe"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "alternateName": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "image": {
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "uri"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "minItems": 1
+        }
+      ]
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "inLanguage": {
+      "type": "string",
+      "minLength": 2
+    },
+    "recipeCuisine": {
+      "type": "string",
+      "minLength": 1
+    },
+    "recipeCategory": {
+      "type": "string",
+      "minLength": 1
+    },
+    "keywords": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      ]
+    },
+    "recipeYield": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "integer",
+          "minimum": 0
+        }
+      ]
+    },
+    "prepTime": {
+      "$ref": "#/$defs/isoDuration"
+    },
+    "cookTime": {
+      "$ref": "#/$defs/isoDuration"
+    },
+    "totalTime": {
+      "$ref": "#/$defs/isoDuration"
+    },
+    "datePublished": {
+      "type": "string",
+      "format": "date"
+    },
+    "author": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "object",
+          "required": [
+            "@type",
+            "name"
+          ],
+          "properties": {
+            "@type": {
+              "type": "string",
+              "enum": [
+                "Person",
+                "Organization"
+              ]
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "recipeIngredient": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "oneOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "object",
+            "required": [
+              "@type",
+              "name"
+            ],
+            "properties": {
+              "@type": {
+                "type": "string",
+                "const": "PropertyValue"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "value": {
+                "type": [
+                  "string",
+                  "number"
+                ]
+              },
+              "unitCode": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "recipeInstructions": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "oneOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "object",
+                "required": [
+                  "@type",
+                  "text"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "string",
+                    "enum": [
+                      "HowToStep"
+                    ]
+                  },
+                  "text": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "nutrition": {
+      "type": "object",
+      "required": [
+        "@type"
+      ],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "NutritionInformation"
+        },
+        "calories": {
+          "type": "string"
+        },
+        "fatContent": {
+          "type": "string"
+        },
+        "carbohydrateContent": {
+          "type": "string"
+        },
+        "proteinContent": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "suitableForDiet": {
+      "type": "string",
+      "anyOf": [
+        {
+          "enum": [
+            "DiabeticDiet",
+            "GlutenFreeDiet",
+            "HalalDiet",
+            "KosherDiet",
+            "LowCalorieDiet",
+            "LowFatDiet",
+            "LowLactoseDiet",
+            "LowSaltDiet",
+            "VeganDiet",
+            "VegetarianDiet"
+          ]
+        },
+        {
+          "pattern": "^https://schema\\.org/[^\\s]+$"
+        }
+      ]
+    },
+    "interactionStatistic": {
+      "type": "object",
+      "required": [
+        "@type",
+        "userInteractionCount"
+      ],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "InteractionCounter"
+        },
+        "interactionType": {
+          "type": "string"
+        },
+        "userInteractionCount": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "aggregateRating": {
+      "type": "object",
+      "required": [
+        "@type",
+        "ratingValue"
+      ],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "AggregateRating"
+        },
+        "ratingValue": {
+          "type": [
+            "number",
+            "string"
+          ]
+        },
+        "ratingCount": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "isoDuration": {
+      "type": "string",
+      "pattern": "^P(?=.+)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+S)?)?$"
+    }
+  }
+}
