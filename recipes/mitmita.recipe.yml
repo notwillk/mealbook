@@ -1,0 +1,63 @@
+"@context": https://schema.org
+"@type": Recipe
+name: Mitmita
+description: Fiery Ethiopian spice blend of bird’s eye chilies, korerima, and warm spices; classic with kitfo and gored gored.
+inLanguage: en-US
+url: https://ethiopiandining.com/mitmita-recipe/
+recipeCuisine: Ethiopian
+recipeCategory: Condiment
+keywords:
+  - mitmita
+  - Ethiopian spice blend
+  - korerima
+  - bird's eye chili
+  - kitfo
+  - gored gored
+  - berbere counterpart
+prepTime: PT20M
+cookTime: PT40M
+totalTime: PT1H10M
+recipeYield: "10 tablespoons"
+recipeIngredient:
+  - name: Dried bird's eye chili peppers
+    value: 10
+    unitCode: gram
+  - name: Korerima (Ethiopian cardamom)
+    value: 6
+    unitCode: gram
+  - name: Green cardamom seeds
+    value: 2
+    unitCode: gram
+  - name: Cumin seeds
+    value: 10
+    unitCode: gram
+  - name: Allspice berries
+    value: 6
+    unitCode: gram
+  - name: Black pepper
+    value: 6
+    unitCode: gram
+  - name: Whole cloves
+    value: 4
+    unitCode: gram
+  - name: Cinnamon stick
+    value: 3
+    unitCode: gram
+  - name: Garlic powder
+    value: 4
+    unitCode: gram
+  - name: Ginger powder
+    value: 6
+    unitCode: gram
+  - name: Salt
+    value: 10
+    unitCode: gram
+recipeInstructions:
+  - name: Roast spices
+    text: In a heavy-bottom pan over medium heat, roast chilies, korerima, green cardamom seeds, cumin, allspice, and the cinnamon stick for about 3 minutes, shaking the pan to prevent burning.
+  - name: Cool mixture
+    text: Transfer roasted spices to a bowl and let cool completely, stirring occasionally for even cooling.
+  - name: Grind
+    text: Add cooled roasted spices to a blender with black pepper, cloves, garlic powder, ginger powder, and salt. Grind to a fine powder.
+  - name: Store
+    text: Transfer to an airtight glass jar. Store in a cool, dark, dry place for several months.

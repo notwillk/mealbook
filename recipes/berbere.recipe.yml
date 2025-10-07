@@ -1,0 +1,70 @@
+"@context": https://schema.org
+"@type": Recipe
+name: Berbere (Ethiopian Spice Blend)
+description: Central to Ethiopian cuisine, berbere is a fiery, fragrant spice blend used in stews, lentils, meats, and vegetables.
+inLanguage: en-US
+url: https://www.daringgourmet.com/berbere-ethiopian-spice-blend/#recipe
+recipeCuisine: Ethiopian
+recipeCategory: Seasoning
+keywords:
+  - berbere
+  - Ethiopian spice blend
+  - seasoning
+  - doro wat
+  - misir wat
+  - sega wat
+  - spice mix
+prepTime: PT10M
+cookTime: PT0M
+totalTime: PT10M
+recipeYield: "18 servings"
+recipeIngredient:
+  - name: Coriander seeds
+    value: 2
+    unitCode: teaspoon
+  - name: Cumin seeds
+    value: 1
+    unitCode: teaspoon
+  - name: Fenugreek seeds
+    value: "1/2"
+    unitCode: teaspoon
+  - name: Black peppercorns
+    value: 1
+    unitCode: teaspoon
+  - name: Allspice berries, whole
+    value: 2
+    unitCode: count
+  - name: Green cardamom pods, seeds only
+    value: 4
+    unitCode: count
+  - name: Cloves, whole
+    value: 4
+    unitCode: count
+  - name: Dried red chilies, deseeded and broken
+    value: 5
+    unitCode: count
+  - name: Sweet paprika
+    value: 3
+    unitCode: tablespoon
+  - name: Turmeric, ground
+    value: 1
+    unitCode: teaspoon
+  - name: Kosher or sea salt
+    value: 1
+    unitCode: teaspoon
+  - name: Ginger, ground
+    value: "1/2"
+    unitCode: teaspoon
+  - name: Nutmeg, ground
+    value: "1/4"
+    unitCode: teaspoon
+  - name: Cinnamon, ground
+    value: "1/4"
+    unitCode: teaspoon
+recipeInstructions:
+  - name: Toast spices
+    text: In a heavy skillet over high heat, toast the whole spices and chilies, shaking regularly, until very fragrant, about 3 minutes. Transfer to a bowl and cool completely.
+  - name: Grind and combine
+    text: Grind the cooled spices in a spice or coffee grinder. Add the remaining ground spices and salt, then grind to a uniform powder.
+  - name: Store
+    text: Transfer to an airtight container and store in a cool, dark place for up to 3 months.

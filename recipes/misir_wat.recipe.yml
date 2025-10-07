@@ -1,0 +1,59 @@
+"@context": https://schema.org
+"@type": Recipe
+name: Misir Wat (Ethiopian Spiced Red Lentils)
+description: Ethiopian spiced red lentils simmered with berbere and niter kibbeh; rich, aromatic, and traditionally served with injera.
+inLanguage: en-US
+url: https://www.daringgourmet.com/misir-wat-ethiopian-spiced-red-lentils/#recipe
+recipeCuisine: Ethiopian
+recipeCategory: Main Course
+keywords:
+  - misir wat
+  - misir wot
+  - Ethiopian
+  - red lentils
+  - berbere
+  - niter kibbeh
+  - injera
+prepTime: PT10M
+cookTime: PT55M
+totalTime: PT1H5M
+recipeYield: "6 servings"
+recipeIngredient:
+  - name: Niter kibbeh, divided
+    value: 4
+    unitCode: tablespoon
+  - name: Yellow onion, large, very finely diced
+    value: 1
+    unitCode: count
+  - name: Garlic, finely minced
+    value: 3
+    unitCode: clove
+  - name: Roma tomato, very finely chopped
+    value: 1
+    unitCode: count
+  - name: Tomato paste
+    value: 3
+    unitCode: tablespoon
+  - name: Berbere spice blend, divided
+    value: 2
+    unitCode: tablespoon
+  - name: Red lentils, rinsed
+    value: 1
+    unitCode: cup
+  - name: Chicken broth or vegetable broth
+    value: "2 1/2"
+    unitCode: cup
+  - name: Salt
+    value: 1
+    unitCode: teaspoon
+recipeInstructions:
+  - name: Sauté onions
+    text: Melt 3 tablespoons niter kibbeh in a medium pot. Add onions and cook over medium-high heat until golden, 8–10 minutes.
+  - name: Add aromatics and berbere
+    text: Add garlic, tomato, tomato paste, and 1 tablespoon berbere. Cook 5–7 minutes, reducing heat as needed to prevent burning.
+  - name: Simmer lentils
+    text: Add lentils, broth, and salt. Bring to a boil, then cover and simmer on low, stirring occasionally, about 40 minutes or until lentils are soft; add more broth if needed.
+  - name: Finish and season
+    text: Stir in remaining 1 tablespoon niter kibbeh and remaining berbere. Simmer a couple more minutes, then adjust salt to taste.
+  - name: Serve
+    text: Serve hot with injera.

@@ -1,0 +1,62 @@
+"@context": https://schema.org
+"@type": Recipe
+name: Gomen Wat
+description: Ethiopian collard greens simmered with aromatics and niter kibbeh for a savory, tender side.
+inLanguage: en-US
+url: https://cheflolaskitchen.com/gomen-wat/#recipe
+recipeCuisine: Ethiopian
+recipeCategory: Side Dish
+keywords:
+  - gomen wat
+  - Ethiopian collard greens
+  - niter kibbeh
+  - collard greens
+  - kale
+  - injera
+  - vegetarian side
+prepTime: PT10M
+cookTime: PT20M
+totalTime: PT30M
+recipeYield: "4 servings"
+recipeIngredient:
+  - name: Collard greens or kale, chopped (about 1 1/2 lb)
+    value: "2"
+    unitCode: bunch
+  - name: Niter kibbeh (Ethiopian spiced clarified butter) or cooking oil
+    value: "4"
+    unitCode: tablespoon
+  - name: Ginger, minced
+    value: "1 1/2"
+    unitCode: teaspoon
+  - name: Garlic, minced
+    value: "1"
+    unitCode: tablespoon
+  - name: Red onion, medium, chopped
+    value: "1"
+    unitCode: each
+  - name: Smoked paprika
+    value: "1"
+    unitCode: teaspoon
+  - name: Cardamom spice
+    value: "1/2"
+    unitCode: teaspoon
+  - name: Cumin
+    value: "1"
+    unitCode: teaspoon
+  - name: Tomato, ripe, finely chopped
+    value: "1"
+    unitCode: each
+  - name: Jalapeño peppers, deseeded and diced
+    value: "1-2"
+    unitCode: each
+  - name: Salt
+    value: "to taste"
+recipeInstructions:
+  - name: Cook aromatics
+    text: In a large skillet, add the onion, tomatoes, garlic, and salt. Cook until the moisture is absorbed, about 5 minutes.
+  - name: Bloom spices
+    text: Add the oil, minced ginger, garlic, paprika, cumin, and cardamom; sauté about 1 minute.
+  - name: Wilt greens
+    text: Stir in the collard greens and cook over medium heat until softened and most of the water evaporates, about 10 to 15 minutes. Adjust seasoning.
+  - name: Serve
+    text: Serve over injera or alongside your preferred Ethiopian dishes.

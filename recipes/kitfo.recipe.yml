@@ -1,0 +1,71 @@
+"@context": https://schema.org
+"@type": Recipe
+name: Kitfo
+description: Ethiopian minced beef seasoned with mitmita and korerima, then rubbed with warm kibe (spiced clarified butter); traditionally served with ayib and gomen.
+inLanguage: en-US
+url: https://thebalemoya.com/blogs/recipies/how-to-make-kitfo
+recipeCuisine: Ethiopian
+recipeCategory: Main Course
+keywords:
+  - kitfo
+  - Ethiopian
+  - raw minced beef
+  - mitmita
+  - korerima
+  - koseret
+  - niter kibbeh
+  - kibe
+  - ayib
+  - gomen
+prepTime: PT20M
+cookTime: PT10M
+totalTime: PT30M
+recipeYield: "2-3 servings"
+recipeIngredient:
+  - name: Beef, knuckle or thigh round, finely chopped
+    value: 1
+    unitCode: pound
+  - name: Mitmita spice blend
+    value: 2
+    unitCode: tablespoon
+  - name: Korerima (Ethiopian cardamom), ground
+    value: 2
+    unitCode: teaspoon
+  - name: Koseret, ground
+    value: "1/2"
+    unitCode: teaspoon
+  - name: Salt
+    value: "1/2"
+    unitCode: teaspoon
+  - name: Kibe (clarified butter)
+    value: 4
+    unitCode: tablespoon
+recipeInstructions:
+  - name: Step 1
+    text: Begin by chopping 1 lb of beef into small pieces.
+  - name: Step 2
+    text: Add the beef to a bowl.
+  - name: Step 3
+    text: Add the mitmita to the bowl.
+  - name: Step 4
+    text: Mix until the mitmita is evenly distributed.
+  - name: Step 5
+    text: Add the korerima (cardamom).
+  - name: Step 6
+    text: Mix to distribute the korerima evenly.
+  - name: Step 7
+    text: Add the koseret.
+  - name: Step 8
+    text: Mix to distribute the koseret evenly.
+  - name: Step 9
+    text: Add the salt.
+  - name: Step 10
+    text: Mix to distribute the salt evenly.
+  - name: Step 11
+    text: In a separate pan, melt the kibe (clarified butter).
+  - name: Step 12
+    text: Pour the melted kibe over the beef.
+  - name: Step 13
+    text: Rub the kibe into the beef using food-safe gloves until evenly coated.
+  - name: Step 14
+    text: Serve with ayib (fresh cheese) and/or gomen (cooked collard greens).
