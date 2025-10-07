@@ -1,0 +1,76 @@
+"@context": https://schema.org
+"@type": Recipe
+name: Niter Kibbeh
+description: Clarified butter gently infused with Ethiopian spices; a versatile cooking fat for stews, lentils, greens, eggs, and more.
+inLanguage: en-US
+url: https://www.daringgourmet.com/niter-kibbeh-ethiopian-spiced-clarified-butter/
+recipeCuisine: Ethiopian
+recipeCategory: Condiment
+keywords:
+  - niter kibbeh
+  - nit’ir qibe
+  - Ethiopian clarified butter
+  - spiced butter
+  - korerima
+  - besobela
+  - kosseret
+prepTime: PT15M
+cookTime: PT1H
+totalTime: PT1H15M
+recipeYield: "about 2 cups"
+recipeIngredient:
+  - name: Unsalted butter, cubed
+    value: 1
+    unitCode: pound
+  - name: Yellow onion, chopped
+    value: "1/4"
+    unitCode: cup
+  - name: Fresh garlic, minced
+    value: 3
+    unitCode: tablespoon
+  - name: Fresh ginger, minced
+    value: 2
+    unitCode: tablespoon
+  - name: Cinnamon stick (2-inch)
+    value: 1
+    unitCode: piece
+  - name: Whole black peppercorns
+    value: 1
+    unitCode: teaspoon
+  - name: Black cardamom pods (korerima), lightly crushed
+    value: 3
+    unitCode: piece
+  - name: Whole cloves
+    value: 3
+    unitCode: piece
+  - name: Fenugreek seeds
+    value: 1
+    unitCode: teaspoon
+  - name: Coriander seeds
+    value: 1
+    unitCode: teaspoon
+  - name: Dried oregano
+    value: 1
+    unitCode: teaspoon
+  - name: Cumin seeds
+    value: "1/2"
+    unitCode: teaspoon
+  - name: Ground nutmeg
+    value: "1/4"
+    unitCode: teaspoon
+  - name: Ground turmeric
+    value: "1/4"
+    unitCode: teaspoon
+  - name: Dried besobela (Ethiopian sacred basil), optional
+    value: 1
+    unitCode: tablespoon
+  - name: Dried kosseret (Ethiopian basil), optional
+    value: 1
+    unitCode: tablespoon
+recipeInstructions:
+  - name: Toast spices
+    text: In a dry skillet over medium heat, toast the whole spices until very fragrant, shaking often. Do not scorch. Set aside.
+  - name: Simmer and clarify
+    text: Combine all ingredients in a medium saucepan. Hold at an ultra-low simmer for 60-90 minutes to clarify and infuse. Do not let the butter brown or burn.
+  - name: Strain and store
+    text: Strain through fine-mesh cheesecloth into a clean jar. Cool, seal, and store. Keeps several weeks at room temperature, longer refrigerated or frozen. Let come to room temp before scooping.
