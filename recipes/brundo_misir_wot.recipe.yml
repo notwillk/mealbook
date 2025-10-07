@@ -49,12 +49,23 @@ recipeIngredient:
   - value: 1
     name: jalapeño, sliced and seeded, for garnish (optional)
 recipeInstructions:
-  - Wash lentils in hot water until the water runs clear, then soak 30 minutes. Strain.
-  - Mince onions and garlic.
-  - Sauté onions in oil over moderate heat until soft and translucent, about 10 minutes.
-  - Add berbere and cook ~3 minutes, stirring, until a thick paste forms. Splash water if needed to prevent scorching.
-  - Add Makulaya and the minced garlic; cook until fragrant, about 1 minute.
-  - Add lentils and toss to coat in the spiced paste.
-  - Add 4 cups warm water to fully submerge lentils. Bring to a boil, then simmer medium-low, uncovered, 20 minutes or until tender, stirring occasionally.
-  - Stir in Mekelesha, black pepper, and salt. Remove from heat and rest 5 minutes.
-  - Adjust salt. Garnish with sliced jalapeño and serve.
+  - name: Prep lentils
+    text: Wash lentils in hot water until the water runs clear, then soak 30 minutes. Strain.
+  - name: Prep aromatics
+    text: Mince onions and garlic.
+  - name: Cook aromatics
+    text: Sauté onions in oil over moderate heat until soft and translucent, about 10 minutes.
+  - name: Add berbere
+    text: Add berbere and cook ~3 minutes, stirring, until a thick paste forms. Splash water if needed to prevent scorching.
+  - name: Add makulaya
+    text: Add Makulaya and the minced garlic; cook until fragrant, about 1 minute.
+  - name: Add lentils
+    text: Add lentils and toss to coat in the spiced paste.
+  - name: Add water
+    text: Add 4 cups warm water to fully submerge lentils. Bring to a boil, then simmer medium-low, uncovered, 20 minutes or until tender, stirring occasionally.
+  - name: Add remaining spices
+    text: Stir in Mekelesha, black pepper, and salt. Remove from heat and rest 5 minutes.
+  - name: Season
+    text: Salt to taste
+  - name: Garnish
+    text: Garnish with sliced jalapeño and serve.
