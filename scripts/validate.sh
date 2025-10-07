@@ -2,10 +2,16 @@
 set -euo pipefail
 
 # Validate recipe/menu files against a JSON Schema using Docker + ajv-cli.
-# Usage: ./scripts/validate.sh <schema.(json|yml|yaml)> <data1> [data2...]
+# Usage: ./scripts/validate.sh [--debug] <schema.(json|yml|yaml)> <data1> [data2...]
+
+DEBUG=0
+if [ "${1:-}" = "--debug" ]; then
+  DEBUG=1
+  shift
+fi
 
 if [ "$#" -lt 2 ]; then
-  echo "Usage: $0 <schema.(json|yml|yaml)> <data...>" >&2
+  echo "Usage: $0 [--debug] <schema.(json|yml|yaml)> <data...>" >&2
   exit 2
 fi
 
@@ -39,6 +45,8 @@ if [ "$#" -lt 2 ]; then
   exit 2
 fi
 
+debug="${VALIDATE_DEBUG:-0}"
+
 make_json_tmp() {
   local base
   base="$(mktemp /tmp/"$1".XXXXXX)"
@@ -71,12 +79,24 @@ for data in "$@"; do
   cleanup_files+=("$data_json")
   tojson "$data" >"$data_json"
 
-  if ajv validate --spec=draft2020 --strict=false -c ajv-formats \
-      -s "$schema_json" -d "$data_json"; then
-    echo "OK  : $data"
+  if [ "$debug" -eq 1 ]; then
+    if ajv validate --spec=draft2020 --strict=false -c ajv-formats \
+        -s "$schema_json" -d "$data_json"; then
+      echo "OK  : $data"
+    else
+      echo "FAIL: $data" >&2
+      status=1
+    fi
   else
-    echo "FAIL: $data" >&2
-    status=1
+    log_file="$(mktemp /tmp/ajv.XXXXXX)"
+    cleanup_files+=("$log_file")
+    if ajv validate --spec=draft2020 --strict=false -c ajv-formats \
+        -s "$schema_json" -d "$data_json" >"$log_file" 2>&1; then
+      echo "OK  : $data"
+    else
+      echo "FAIL: $data" >&2
+      status=1
+    fi
   fi
 done
 
@@ -84,5 +104,11 @@ rm -f "${cleanup_files[@]}"
 exit $status
 EOF
 
-docker build -t "$IMG" "$TMP_DIR" >/dev/null
-docker run --rm -v "$PWD":/workspace -w /workspace "$IMG" "$SCHEMA_PATH" "$@"
+if [ "$DEBUG" -eq 1 ]; then
+  docker build -t "$IMG" "$TMP_DIR"
+else
+  docker build -t "$IMG" "$TMP_DIR" >/dev/null 2>&1
+fi
+
+run_env=( "-e" "VALIDATE_DEBUG=$DEBUG" )
+docker run --rm -v "$PWD":/workspace -w /workspace "${run_env[@]}" "$IMG" "$SCHEMA_PATH" "$@"
