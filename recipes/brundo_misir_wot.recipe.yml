@@ -19,17 +19,37 @@ cookTime: PT40M
 totalTime: PT1H15M
 url: https://www.brundo.com/blogs/recipes/how-to-cook-ethiopian-misser-wot-red-lentils
 recipeIngredient:
-  - 2 red onions, minced
-  - 2-3 tablespoons garlic, minced
-  - 1/2 cup neutral oil (vegetable or canola)
-  - 1 pound red split lentils
-  - 4 cups warm water, plus more as needed
-  - 1 teaspoon Makulaya spice blend
-  - 1 teaspoon Mekelesha spice blend
-  - 1/2 cup berbere
-  - 1/2 teaspoon freshly ground black pepper
+  - "@type": "PropertyValue"
+    value: 2
+    name: red onions, minced
+  - "@type": "PropertyValue"
+    value: 2-3 tablespoons
+    name: garlic, minced
+  - "@type": "PropertyValue"
+    value: 1/2 cup
+    name: neutral oil (vegetable or canola)
+  - "@type": "PropertyValue"
+    value: 1 pound
+    name: red split lentils
+  - "@type": "PropertyValue"
+    value: 4 cups
+    name: warm water, plus more as needed
+  - "@type": "PropertyValue"
+    value: 1 teaspoon
+    name: Makulaya spice blend
+  - "@type": "PropertyValue"
+    value: 1 teaspoon
+    name: Mekelesha spice blend
+  - "@type": "PropertyValue"
+    value: 1/2 cup
+    name: berbere
+  - "@type": "PropertyValue"
+    value: 1/2 teaspoon
+    name: freshly ground black pepper
   - Kosher salt, to taste
-  - 1 jalapeño, sliced and seeded, for garnish (optional)
+  - "@type": "PropertyValue"
+    value: 1
+    name: jalapeño, sliced and seeded, for garnish (optional)
 recipeInstructions:
   - Wash lentils in hot water until the water runs clear, then soak 30 minutes. Strain.
   - Mince onions and garlic.
