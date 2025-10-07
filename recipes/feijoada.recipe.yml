@@ -1,0 +1,77 @@
+"@context": https://schema.org
+"@type": Recipe
+name: Feijoada
+description: Black beans simmered with salted beef and smoked sausages until rich and tender; Brazil’s classic black bean stew.
+inLanguage: en-US
+url: https://www.oliviascuisine.com/feijoada-recipe/
+recipeCuisine: Brazilian
+recipeCategory: Main Course
+keywords:
+  - feijoada
+  - Brazilian black bean stew
+  - black beans
+  - carne seca
+  - calabresa
+  - paio
+  - bacon
+  - bay leaves
+  - orange
+prepTime: PT10M
+cookTime: PT2H30M
+totalTime: P1DT2H40M
+recipeYield: "8 servings"
+recipeIngredient:
+  - name: Carne seca
+    value: 1
+    unitCode: pound
+  - name: Smoked calabresa sausages, large (about 1 pound total)
+    value: 3
+  - name: Paio sausages (about 8 ounces total)
+    value: 2
+  - name: Dried black beans
+    value: 5
+    unitCode: cup
+  - name: Dried bay leaves
+    value: 3
+    unitCode: leaf
+  - name: Orange, unpeeled
+    value: "1/2"
+  - name: Vegetable oil
+    value: 1
+    unitCode: tablespoon
+  - name: Thick-cut bacon, diced
+    value: 6
+    unitCode: slice
+  - name: Onion, large, chopped
+    value: 1
+  - name: Garlic, minced
+    value: 12
+    unitCode: clove
+  - name: Salt
+    value: to taste
+  - name: Freshly ground black pepper
+    value: to taste
+  - name: Cold water
+    value: "2 1/2"
+    unitCode: quart
+recipeInstructions:
+  - name: Soak meats
+    text: Trim excess fat from carne seca and sausages. Cover with cold water and refrigerate 24 hours, changing the water 3-4 times.
+  - name: Soak beans
+    text: In a separate bowl, cover black beans with cold water and soak overnight in the refrigerator.
+  - name: Parboil meats
+    text: Drain meats and beans. Place soaked meats in a large Dutch oven, cover with water, bring to a boil, and boil 20 minutes. Drain and reserve.
+  - name: Start beans and beef
+    text: In the same pot, combine boiled carne seca, soaked beans, bay leaves, and the half orange. Add 2.5 quarts cold water and bring to a boil; reduce to a gentle simmer, cover, and cook 30 minutes.
+  - name: Add sausages and simmer
+    text: Add calabresa and paio. Cover and continue simmering, skimming fat as needed, until meats are tender and beans are cooked, about 1.5-2 hours. Remove orange and bay leaves; discard. Remove meats and slice into bite-size pieces.
+  - name: Sauté bacon and aromatics
+    text: Heat oil in a skillet over medium heat. Cook bacon until no longer raw, 3-5 minutes. Add onion and garlic; sauté until softened and fragrant, 2-3 minutes.
+  - name: Mash beans to thicken
+    text: Add a ladleful of cooked beans (without liquid) to the skillet and mash with a fork to release starch; stir to combine.
+  - name: Thicken stew
+    text: Stir the mashed bean mixture into the pot. Cook over medium heat, uncovered, 10-15 minutes until thickened; add water if too thick.
+  - name: Season and finish
+    text: Season to taste with salt and pepper. Return sliced meats to the pot and heat through.
+  - name: Serve
+    text: Serve hot with white rice, sautéed collard greens, farofa, vinaigrette salsa, fried bananas, and orange slices.

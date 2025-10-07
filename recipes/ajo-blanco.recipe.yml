@@ -1,0 +1,55 @@
+"@context": https://schema.org
+"@type": Recipe
+name: Ajo Blanco (Spanish Chilled "White Gazpacho" Bread and Almond Soup)
+description: Traditional Andalusian cold soup of almonds, bread, garlic, olive oil, and sherry vinegar; finished with grape, almond, and mint garnish.
+inLanguage: en-US
+url: https://www.seriouseats.com/ajo-blanco-spanish-bread-almond-cold-soup-recipe
+recipeCuisine: Spanish
+recipeCategory: Soup
+keywords:
+  - ajo blanco
+  - white gazpacho
+  - Spanish
+  - Andalusian
+  - almond soup
+  - bread soup
+  - chilled soup
+  - vegan
+prepTime: PT10M
+cookTime: PT0M
+totalTime: PT2H10M
+recipeYield: "6 servings"
+recipeIngredient:
+  - name: Blanched or Marcona almonds
+    value: 1
+    unitCode: cup
+  - name: Water, cold
+    value: 3
+    unitCode: cup
+  - name: Garlic, medium cloves
+    value: "1 to 2"
+    unitCode: clove
+  - name: Rustic bread, fresh and crustless, cut into 1-inch cubes
+    value: "1/2"
+    unitCode: pound
+  - name: Kosher salt
+    value: to taste
+  - name: Sherry vinegar
+    value: "1 1/2"
+    unitCode: teaspoon
+  - name: Extra-virgin olive oil
+    value: "1 1/2"
+    unitCode: tablespoon
+  - name: Green seedless grapes, cut up, for garnish
+    value: for garnish
+  - name: Toasted almonds, crushed, for garnish
+    value: for garnish
+  - name: Fresh mint leaves, thinly sliced, for garnish
+    value: for garnish
+recipeInstructions:
+  - name: Blend base
+    text: In a blender, combine almonds with cold water and garlic; blend on high until milky. Add the bread and blend until very smooth. Season with salt, then blend in the sherry vinegar and olive oil. Strain through a fine-mesh strainer if your blender is not powerful.
+  - name: Chill
+    text: Transfer soup to a sealed container and refrigerate until very well chilled, at least 2 hours and up to 2 days.
+  - name: Garnish and serve
+    text: Stir or shake soup; thin with cold water if desired and adjust salt and vinegar. Toss cut grapes with crushed toasted almonds, sliced mint, and a little olive oil; season with salt. Ladle soup into chilled bowls, spoon garnish on top, and drizzle with olive oil.

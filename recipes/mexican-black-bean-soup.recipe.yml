@@ -1,0 +1,72 @@
+"@context": https://schema.org
+"@type": Recipe
+name: Mexican Black Bean Corn Soup
+description: Hearty black bean and corn soup with chipotle, cumin, tomatoes, and lime; blended beans add body without oil.
+inLanguage: en-US
+url: https://www.forksoverknives.com/recipes/vegan-soups-stews/mexican-black-bean-corn-soup/
+recipeCuisine: Mexican
+recipeCategory: Soup
+keywords:
+  - black bean soup
+  - corn
+  - vegan
+  - oil-free
+  - chipotle
+  - cumin
+  - Mexican soup
+  - blended beans
+prepTime: PT20M
+cookTime: PT40M
+totalTime: PT1H
+recipeYield: "8 servings"
+recipeIngredient:
+  - name: Onion, diced
+    value: 1
+    unitCode: large
+  - name: Garlic, minced
+    value: 6
+    unitCode: clove
+  - name: Celery, diced
+    value: 3
+    unitCode: stalk
+  - name: Carrots, diced
+    value: 2
+    unitCode: whole
+  - name: Vegetable broth (homemade or low sodium)
+    value: 5
+    unitCode: cup
+  - name: Black beans, low sodium, undrained (or 7 cups cooked)
+    value: 4
+    unitCode: 15 ounce can
+  - name: Sweet corn, whole kernel, drained (salt free, unsweetened)
+    value: 1
+    unitCode: 15 ounce can
+  - name: Fire-roasted tomatoes, diced
+    value: 1
+    unitCode: 14.5 ounce can
+  - name: Cumin, roasted or regular
+    value: 4
+    unitCode: teaspoon
+  - name: Chipotle chili powder
+    value: "1 to 1 1/2"
+    unitCode: teaspoon
+  - name: Herbamare or salt
+    value: "1/2"
+    unitCode: teaspoon
+  - name: Lime, juiced
+    value: 1
+    unitCode: small
+  - name: Black pepper, freshly ground
+    value: to taste
+  - name: Cilantro, chopped, for garnish
+    value: "1/2"
+    unitCode: bunch
+recipeInstructions:
+  - name: Sauté aromatics
+    text: In a large pot, sauté onion, celery, carrots, and garlic in 1 cup of vegetable broth over medium heat for 6–7 minutes. Add chipotle chili powder, cumin, and black pepper; cook 1–2 minutes.
+  - name: Build soup base
+    text: Stir in remaining vegetable broth, 4 cups of the beans, and the corn. Increase heat to high and bring to a boil.
+  - name: Blend and simmer
+    text: Blend the remaining beans with the diced tomatoes until smooth; stir into the boiling soup. Reduce heat to medium and simmer about 15 minutes, until vegetables are tender.
+  - name: Season and serve
+    text: Season to taste with Herbamare or salt and add lime juice. Serve hot and garnish with chopped cilantro.

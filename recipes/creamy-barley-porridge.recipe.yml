@@ -1,0 +1,48 @@
+"@context": https://schema.org
+"@type": Recipe
+name: Creamy Barley Porridge
+description: A simple three-ingredient barley porridge cooked in milk and water, lightly sweetened with maple syrup and finished with vanilla and cinnamon.
+inLanguage: en-US
+url: https://www.myplantifulcooking.com/barley-porridge/
+recipeCuisine: American
+recipeCategory: Breakfast
+keywords:
+  - barley porridge
+  - pearl barley
+  - vegan breakfast
+  - maple syrup
+  - cinnamon
+  - vanilla
+  - oatmeal alternative
+prepTime: PT5M
+cookTime: PT45M
+totalTime: PT50M
+recipeYield: "3 servings"
+recipeIngredient:
+  - name: Water
+    value: "1 1/2"
+    unitCode: cup
+  - name: Milk (soy or other plant-based or dairy)
+    value: 1
+    unitCode: cup
+  - name: Pearl barley, rinsed and drained
+    value: "1/2"
+    unitCode: cup
+  - name: Maple syrup or other sweetener
+    value: "2 to 3"
+    unitCode: tablespoon
+  - name: Ground cinnamon
+    value: 1
+    unitCode: teaspoon
+  - name: Vanilla extract
+    value: 1
+    unitCode: teaspoon
+recipeInstructions:
+  - name: Boil liquids
+    text: Add milk and water to a saucepan and bring to a boil.
+  - name: Add barley
+    text: Stir in the pearl barley.
+  - name: Simmer
+    text: Reduce heat to medium-low and cook 40–45 minutes, stirring occasionally and more frequently near the end to prevent sticking.
+  - name: Finish and serve
+    text: Stir in maple syrup, vanilla, and cinnamon. Taste and adjust sweetness. Serve warm with desired toppings.

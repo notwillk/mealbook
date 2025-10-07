@@ -1,0 +1,86 @@
+"@context": https://schema.org
+"@type": Recipe
+name: Instant Pot Pinto Bean Chili
+description: A fast and delicious Instant Pot chili that’s easy to customize with ground turkey or ground beef; quick-soak the pinto beans for faster, more uniformly tender results.
+inLanguage: en-US
+url: https://www.camelliabrand.com/recipes/instant-pot-pinto-bean-chili/
+recipeCuisine: American
+recipeCategory: Main course
+keywords:
+  - instant pot
+  - pressure cooker
+  - pinto beans
+  - chili
+  - ground turkey
+  - ground beef
+  - weeknight
+  - gameday
+prepTime: PT10M
+cookTime: PT1H10M
+totalTime: PT1H20M
+recipeYield: 8 servings
+recipeIngredient:
+  - name: Pinto beans (Camellia Brand)
+    value: 1
+    unitCode: pound
+  - name: Water
+    value: 4
+    unitCode: cup
+  - name: Oil
+    value: 2
+    unitCode: tablespoon
+  - name: Onion, diced
+    value: 1
+    unitCode: each
+  - name: Orange bell pepper, diced
+    value: 1
+    unitCode: each
+  - name: Garlic, chopped
+    value: 3
+    unitCode: clove
+  - name: Ground turkey or beef
+    value: 1
+    unitCode: pound
+  - name: Kosher salt
+    value: "1/2"
+    unitCode: teaspoon
+  - name: Chili powder
+    value: 2
+    unitCode: tablespoon
+  - name: Cumin
+    value: 1
+    unitCode: teaspoon
+  - name: Smoked paprika
+    value: "1 to 2"
+    unitCode: teaspoon
+  - name: Oregano
+    value: 1
+    unitCode: teaspoon
+  - name: Fire-roasted diced tomatoes
+    value: 1
+    unitCode: 14-ounce can
+  - name: Tomato paste
+    value: 2
+    unitCode: tablespoon
+  - name: Chicken broth
+    value: "3 1/2"
+    unitCode: cup
+  - name: Hot sauce
+    value: to taste
+recipeInstructions:
+  - name: Rinse and sort beans
+    text: Rinse and pick over the pinto beans to remove any debris.
+  - name: Quick soak beans
+    text: Add beans and 4 cups water to the Instant Pot. Lock lid and set valve to Sealing. Cook on Manual/Pressure Cook for 5 minutes at High pressure. Let pressure release naturally for 12 minutes, then vent. Drain beans, set aside, wipe inner pot, and return it to the cooker.
+  - name: Sauté aromatics
+    text: Select Sauté and add the oil. Add diced onion and bell pepper; cook until softened. Stir in chopped garlic.
+  - name: Brown meat
+    text: Add ground turkey or beef and sauté, breaking up with a spoon, until no longer pink. Scrape up browned bits. Cancel Sauté.
+  - name: Season
+    text: Stir in salt, chili powder, cumin, smoked paprika, and oregano until evenly coated.
+  - name: Build chili
+    text: Add drained beans, fire-roasted diced tomatoes, tomato paste, and chicken broth. Stir well.
+  - name: Pressure cook
+    text: Lock lid, set valve to Sealing, and cook on Manual/Pressure Cook for 20 minutes at High pressure. Let pressure release naturally for 20 minutes, then vent.
+  - name: Finish and serve
+    text: Uncover, stir, and adjust seasoning. Add hot sauce to taste. Serve hot; garnish as desired.

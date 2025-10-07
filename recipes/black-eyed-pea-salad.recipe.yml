@@ -1,0 +1,72 @@
+"@context": https://schema.org
+"@type": Recipe
+name: Black Eyed Pea Salad
+description: A bright make-ahead salad of cooked black-eyed peas with celery, red onion, roasted red peppers, herbs, lemon, Dijon, and hot sauce; great served on endive leaves.
+inLanguage: en-US
+url: https://www.ranchogordo.com/blogs/recipes/chef-mavis-jays-black-eyed-pea-salad
+recipeCuisine: Southern
+recipeCategory: Salad
+keywords:
+  - black eyed peas
+  - pea salad
+  - bean salad
+  - make-ahead
+  - Mavis-Jay Sanders
+  - Rancho Gordo
+prepTime: PT20M
+cookTime: PT0M
+totalTime: PT12H20M
+recipeYield: "6 to 8 servings"
+recipeIngredient:
+  - name: Black eyed peas, cooked, drained, and cooled
+    value: 1
+    unitCode: pound
+  - name: Celery, minced
+    value: "1/2"
+    unitCode: cup
+  - name: Red onion, minced
+    value: "1/4"
+    unitCode: cup
+  - name: Roasted red bell peppers, diced
+    value: "1/4"
+    unitCode: cup
+  - name: Dijon mustard
+    value: 1
+    unitCode: tablespoon
+  - name: Apple cider vinegar
+    value: 1
+    unitCode: tablespoon
+  - name: Lemon, zest and juice
+    value: 1
+    unitCode: each
+  - name: Hot sauce
+    value: "1/2 to 1"
+    unitCode: tablespoon
+  - name: Sorghum syrup or maple syrup
+    value: "1/2"
+    unitCode: tablespoon
+  - name: Extra-virgin olive oil
+    value: "1/4"
+    unitCode: cup
+  - name: Fresh oregano, chopped
+    value: 1
+    unitCode: tablespoon
+  - name: Fresh thyme leaves, chopped
+    value: 1
+    unitCode: tablespoon
+  - name: Fresh parsley, chopped
+    value: "1/4"
+    unitCode: cup
+  - name: Garlic cloves, minced
+    value: "1 to 2"
+    unitCode: each
+  - name: Kosher salt
+    value: to taste
+recipeInstructions:
+  - name: Mix salad
+    text: In a bowl, combine the cooked black eyed peas, celery, red onion, and roasted red bell peppers.
+  - name: Make dressing
+    text: In a separate bowl, whisk together the Dijon, apple cider vinegar, lemon zest and juice, hot sauce, syrup, olive oil, oregano, thyme, parsley, and garlic. Season to taste with salt.
+  - name: Combine and marinate
+    text: Add three-fourths of the dressing to the pea-and-vegetable mixture and stir. Taste and add more dressing if desired. Cover and refrigerate to marinate overnight before serving.
+  

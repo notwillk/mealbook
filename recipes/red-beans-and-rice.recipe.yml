@@ -1,0 +1,85 @@
+"@context": https://schema.org
+"@type": Recipe
+name: Authentic Louisiana Red Beans and Rice
+description: Cajun red beans simmered with aromatics and spices, finished with andouille sausage and served over white rice.
+inLanguage: en-US
+url: https://www.allrecipes.com/recipe/58211/authentic-louisiana-red-beans-and-rice/
+recipeCuisine: Cajun
+recipeCategory: Main Course
+keywords:
+  - red beans and rice
+  - Cajun
+  - andouille sausage
+  - kidney beans
+  - trinity
+  - onion
+  - celery
+  - bell pepper
+  - bay leaves
+  - long grain rice
+prepTime: PT25M
+cookTime: PT3H5M
+totalTime: PT11H30M
+recipeYield: "8 servings"
+recipeIngredient:
+  - name: Dry kidney beans
+    value: 1
+    unitCode: pound
+  - name: Olive oil
+    value: "1/4"
+    unitCode: cup
+  - name: Onion, large, chopped
+    value: 1
+  - name: Green bell pepper, chopped
+    value: 1
+  - name: Celery stalks, chopped
+    value: 2
+    unitCode: stalk
+  - name: Garlic, minced
+    value: 2
+    unitCode: tablespoon
+  - name: Water, for beans
+    value: 6
+    unitCode: cup
+  - name: Bay leaves
+    value: 2
+    unitCode: leaf
+  - name: Dried parsley
+    value: 1
+    unitCode: tablespoon
+  - name: Dried thyme
+    value: 1
+    unitCode: teaspoon
+  - name: Cajun seasoning
+    value: 1
+    unitCode: teaspoon
+  - name: Cayenne pepper
+    value: "1/2"
+    unitCode: teaspoon
+  - name: Dried sage
+    value: "1/4"
+    unitCode: teaspoon
+  - name: Andouille sausage, sliced
+    value: 1
+    unitCode: pound
+  - name: Water, for rice
+    value: 4
+    unitCode: cup
+  - name: Long grain white rice
+    value: 2
+    unitCode: cup
+recipeInstructions:
+  - name: Soak beans
+    text: Rinse the dry beans and soak in a large pot of water overnight; drain before cooking.
+  - name: Sauté aromatics
+    text: Heat olive oil in a skillet over medium heat; cook onion, bell pepper, celery, and garlic until lightly softened, 3-4 minutes.
+  - name: Start beans
+    text: Transfer soaked beans to a large pot with 6 cups water. Stir in the sautéed vegetables.
+  - name: Season and simmer
+    text: Add bay leaves, dried parsley, thyme, Cajun seasoning, cayenne, and sage. Bring to a boil, then reduce to medium-low and simmer until beans are tender, about 2 1/2 hours.
+  - name: Add sausage
+    text: Stir in the sliced andouille sausage and simmer 30 minutes more.
+  - name: Cook rice
+    text: Meanwhile, bring 4 cups water and the rice to a boil in a saucepan. Reduce heat to low, cover, and simmer until tender, about 20 minutes.
+  - name: Serve
+    text: Spoon beans and sausage over the steamed white rice. Optional hot sauce at the table.

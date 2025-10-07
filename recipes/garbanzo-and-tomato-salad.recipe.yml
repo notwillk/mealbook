@@ -1,0 +1,59 @@
+"@context": https://schema.org
+"@type": Recipe
+name: Garbanzo and Tomato Salad with Sumac-Marinated Onions
+description: Inspired by a Washington Post recipe, this salad gets a flavor boost from onions marinated in sumac, smoked paprika, and lemon, then tossed with garbanzos, tomatoes, roasted pepper, parsley, and olive oil.
+inLanguage: en-US
+url: https://www.ranchogordo.com/blogs/recipes/garbanzo-bean-salad-with-sumac-onions
+recipeCuisine: Mediterranean
+recipeCategory: Salad
+keywords:
+  - garbanzo beans
+  - chickpeas
+  - sumac
+  - smoked paprika
+  - lemon
+  - tomato salad
+  - parsley
+  - vegan
+  - Rancho Gordo
+prepTime: PT20M
+cookTime: PT0M
+totalTime: PT35M
+recipeYield: "2 to 4 servings"
+recipeIngredient:
+  - name: White onion, chopped
+    value: 1
+  - name: Ground sumac
+    value: 2
+    unitCode: teaspoon
+  - name: Smoked paprika
+    value: 1
+    unitCode: teaspoon
+  - name: Fresh lemon juice
+    value: 1
+    unitCode: tablespoon
+  - name: Red chile flakes (optional)
+    value: "1/4"
+    unitCode: teaspoon
+  - name: Salt
+    value: to taste
+  - name: Black pepper, freshly ground
+    value: to taste
+  - name: Cooked garbanzo beans, drained
+    value: 3
+    unitCode: cup
+  - name: Large ripe tomatoes, cored and diced
+    value: 2
+  - name: Roasted red bell pepper, chopped
+    value: 1
+  - name: Fresh flat-leaf parsley, chopped
+    value: 1
+    unitCode: handful
+  - name: Extra-virgin olive oil
+    value: 2
+    unitCode: tablespoon
+recipeInstructions:
+  - name: Marinate onions
+    text: In a large bowl, combine the onion, sumac, smoked paprika, lemon juice, red chile flakes (if using), and a pinch of salt and pepper. Rub and massage to coat. Let sit about 15 minutes.
+  - name: Assemble salad
+    text: Add the garbanzo beans, tomatoes, roasted red bell pepper, parsley, and olive oil. Toss to combine. Taste and adjust with more lemon juice, oil, salt, pepper, and sumac as desired.

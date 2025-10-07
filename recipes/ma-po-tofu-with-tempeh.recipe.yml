@@ -1,0 +1,77 @@
+"@context": https://schema.org
+"@type": Recipe
+name: Ma Po Tofu With Tempeh
+description: A Sichuan-style mapo tofu using tempeh instead of pork; numbing heat, fermented beans, and silky tofu.
+inLanguage: en-US
+url: https://www.food.com/recipe/ma-po-tofu-with-tempeh-151416
+recipeCuisine: Sichuan
+recipeCategory: Main course
+keywords:
+  - mapo tofu
+  - tempeh
+  - tofu
+  - sichuan pepper
+  - fermented black beans
+  - chili paste
+  - vegan
+prepTime: PT15M
+cookTime: PT25M
+totalTime: PT40M
+recipeYield: "3-4 servings"
+recipeIngredient:
+  - name: Tapioca starch
+    value: "1 1/2"
+    unitCode: tablespoon
+  - name: Soy sauce
+    value: 2
+    unitCode: tablespoon
+  - name: Tempeh, crumbled
+    value: 10
+    unitCode: ounce
+  - name: Tofu, medium firmness, cubed
+    value: 1
+    unitCode: pound
+  - name: Leek, chopped
+    value: 1
+  - name: Green onions, chopped
+    value: 3
+  - name: Salt
+    value: "1/4"
+    unitCode: teaspoon
+  - name: Preserved black beans (douchi)
+    value: 1
+    unitCode: teaspoon
+  - name: Chili paste
+    value: 1
+    unitCode: tablespoon
+  - name: Vegetable stock
+    value: 3
+    unitCode: tablespoon
+  - name: Cornstarch
+    value: 1
+    unitCode: tablespoon
+  - name: Water
+    value: 2
+    unitCode: tablespoon
+  - name: Soy sauce
+    value: 2
+    unitCode: tablespoon
+  - name: Sichuan pepper, freshly ground
+    value: to taste
+  - name: Oil, for stir-frying
+    value: as needed
+recipeInstructions:
+  - name: Marinate and simmer tempeh
+    text: Mix tapioca starch and 2 tablespoons soy sauce; add crumbled tempeh and simmer in the marinade for about 20 minutes.
+  - name: Prep tofu
+    text: Cut tofu into 1/2-inch cubes and blanch in boiling water for 2-3 minutes; drain well.
+  - name: Prep aromatics
+    text: Chop the leek or the green onions into short lengths.
+  - name: Stir-fry tempeh
+    text: Heat a wok with oil; add marinated tempeh and stir-fry until the color darkens.
+  - name: Season base
+    text: Add salt, then preserved black beans; mash beans into the tempeh. Stir in chili paste, then vegetable stock.
+  - name: Add tofu and leek/onions
+    text: Add tofu and the chopped leek or green onions; reduce heat and cook 3-4 minutes.
+  - name: Thicken and finish
+    text: Mix cornstarch with water and 2 tablespoons soy sauce; add to the wok and stir gently to thicken. Serve topped with freshly ground Sichuan pepper.

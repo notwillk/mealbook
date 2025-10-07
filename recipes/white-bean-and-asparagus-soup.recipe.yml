@@ -1,0 +1,70 @@
+"@context": https://schema.org
+"@type": Recipe
+name: Italian-Style White Bean and Asparagus Soup
+description: Adapted from Judith Barrett’s Fagioli; a silky Umbrian-style white bean soup with asparagus, potato, and tomato purée, optionally finished with crisp prosciutto.
+inLanguage: en-US
+url: https://www.ranchogordo.com/blogs/recipes/italian-style-white-bean-soup-with-seasonal-vegetables
+recipeCuisine: Italian
+recipeCategory: Soup
+keywords:
+  - white bean soup
+  - asparagus
+  - Italian
+  - Umbria
+  - Rancho Gordo
+  - Marcella bean
+  - Alubia Blanca
+  - prosciutto
+  - vegetarian optional
+prepTime: PT15M
+cookTime: PT45M
+totalTime: PT1H
+recipeYield: "6 servings"
+recipeIngredient:
+  - name: Olive oil, divided
+    value: 5
+    unitCode: tablespoon
+  - name: Shallots or red onion, chopped
+    value: "1/2"
+    unitCode: cup
+  - name: Celery stalk, finely chopped
+    value: 1
+    unitCode: stalk
+  - name: Garlic, minced
+    value: 1
+    unitCode: clove
+  - name: Yukon Gold potato, medium, peeled and chopped
+    value: 1
+    unitCode: potato
+  - name: Tomato puree
+    value: "1/2"
+    unitCode: cup
+  - name: Fresh asparagus, trimmed (bottom 2 inches removed), peeled, roughly chopped
+    value: 1
+    unitCode: pound
+  - name: Cooked white heirloom beans (e.g., Marcella or Alubia Blanca)
+    value: 2
+    unitCode: cup
+  - name: Bean-cooking liquid and/or broth
+    value: 4
+    unitCode: cup
+  - name: Prosciutto, diced (optional)
+    value: 2
+    unitCode: ounce
+  - name: Kosher salt
+    value: to taste
+  - name: Black pepper, freshly ground
+    value: to taste
+  - name: Fresh parsley, chopped, for garnish (optional)
+    value: as needed
+  - name: Olive oil, for serving (optional)
+    value: as needed
+  - name: Vegetable or chicken broth (additional, if needed)
+    value: as needed
+recipeInstructions:
+  - name: Cook vegetables and simmer
+    text: In a soup pot over medium heat, warm 4 tablespoons olive oil. Add shallots, celery, and garlic; cook, stirring, about 5 minutes until softened. Add potato, tomato puree, asparagus, and cooked beans. Stir in 4 cups bean-cooking liquid and/or broth and simmer, stirring occasionally, until asparagus and potatoes are tender, about 30 minutes.
+  - name: Crisp prosciutto (optional)
+    text: In a small skillet over medium heat, warm remaining 1 tablespoon olive oil. Add diced prosciutto and fry until golden and crisp, 5 to 7 minutes. Remove from heat.
+  - name: Blend and finish
+    text: Blend the soup with an immersion blender or in batches in a blender or food processor until smooth. Return to pot, season with salt and pepper, and reheat. Ladle into bowls; top with fried prosciutto and parsley, and drizzle with olive oil if desired.

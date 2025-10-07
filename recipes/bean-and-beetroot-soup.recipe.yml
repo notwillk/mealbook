@@ -1,0 +1,62 @@
+"@context": https://schema.org
+"@type": Recipe
+name: St. Valentine's Bean and Beetroot Soup
+description: Velvety beet-and-vegetable soup without tomatoes; enriched by cooked white beans and Herbes de Provence.
+inLanguage: en-US
+url: https://www.ranchogordo.com/blogs/recipes/st-valentines-bean-and-beetroot-soup
+recipeCuisine: American
+recipeCategory: Soup
+keywords:
+  - Rancho Gordo
+  - white beans
+  - beetroot soup
+  - beet soup
+  - Herbes de Provence
+  - vegetarian
+  - soups and stews
+  - winter
+prepTime: PT0M
+cookTime: PT52M
+totalTime: PT52M
+recipeYield: "4 to 6 servings"
+recipeIngredient:
+  - name: Beet, large, peeled and quartered
+    value: 1
+  - name: Celery stalks, roughly chopped
+    value: 2
+  - name: Carrots, small, peeled and scrubbed, roughly chopped
+    value: 2
+  - name: Onion
+    value: "1/2"
+  - name: Garlic, peeled and smashed
+    value: 3
+    unitCode: clove
+  - name: Olive oil
+    value: 6
+    unitCode: tablespoon
+  - name: Herbes de Provence
+    value: 2
+    unitCode: teaspoon
+  - name: Cooked white beans
+    value: "1 1/2"
+    unitCode: cup
+  - name: Stock, chicken or vegetable
+    value: 1
+    unitCode: cup
+  - name: Salt
+    value: to taste
+  - name: Pepper
+    value: to taste
+  - name: Fresh parsley, chopped, for garnish
+    value: for garnish
+recipeInstructions:
+  - name: Cook vegetables
+    text: In a medium stock pot, add the beet, celery, and carrots. Cover with water and bring to a boil for 5 minutes. Reduce to medium-low, partially cover, and simmer until all vegetables are soft, about 20 minutes.
+  - name: Reserve cooking liquid
+    text: Strain the vegetables and reserve both the vegetables and their cooking water.
+  - name: Sauté aromatics and combine
+    text: In the pot, sauté the onion and garlic in olive oil over medium heat until soft, about 7 minutes. Stir in the Herbes de Provence, the reserved vegetables, and the beans. Add 4 cups reserved cooking water plus 1 cup stock (add water as needed to total 5 cups). Mix well.
+  - name: Blend and simmer
+    text: Blend with an immersion blender (or in batches in a standing blender). Season with salt and pepper and simmer over medium heat for 20 minutes.
+  - name: Serve
+    text: Ladle into bowls and top with chopped parsley; drizzle with olive oil if desired.

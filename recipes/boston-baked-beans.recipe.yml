@@ -1,0 +1,72 @@
+"@context": https://schema.org
+"@type": Recipe
+name: Slow-Cooked Boston Baked Beans
+description: Classic New England baked beans with navy beans, dark molasses, salt pork, mustard, and onion, cooked low and slow for a caramelized crust and glossy sauce.
+inLanguage: en-US
+url: https://www.seriouseats.com/boston-baked-beans-recipe
+recipeCuisine: American
+recipeCategory: Side Dish
+keywords:
+  - Boston baked beans
+  - New England
+  - navy beans
+  - molasses
+  - salt pork
+  - baked beans
+  - Dutch oven
+  - slow-cooked
+  - side dish
+  - Serious Eats
+prepTime: PT5M
+cookTime: PT5H5M
+totalTime: PT17H10M
+recipeYield: "6 to 10 servings"
+recipeIngredient:
+  - name: Dried small white beans (navy beans)
+    value: 1
+    unitCode: pound
+  - name: Kosher salt, for soaking water
+    value: 1
+    unitCode: tablespoon
+  - name: Aromatic vegetables (e.g., 1 onion, 1 carrot, 2 garlic cloves), optional
+    value: optional
+  - name: Woodsy herb sprigs (e.g., rosemary, sage, thyme), optional
+    value: 2
+    unitCode: sprig
+  - name: Bay leaf
+    value: 1
+  - name: Dark molasses (not blackstrap)
+    value: "1/2"
+    unitCode: cup
+  - name: Dijon or brown mustard
+    value: 2
+    unitCode: teaspoon
+  - name: Black pepper, freshly ground
+    value: 1
+    unitCode: teaspoon
+  - name: Salt pork or slab bacon, rinsed and cut into 1/2-inch chunks
+    value: "1/2"
+    unitCode: pound
+  - name: Yellow onion, large, diced
+    value: 1
+  - name: Kosher salt, to taste
+    value: to taste
+  - name: Apple cider vinegar, optional
+    value: to taste
+recipeInstructions:
+  - name: Soak beans
+    text: Cover beans with cold water by several inches and stir in 1 tablespoon salt. Soak 12 to 24 hours; drain and rinse.
+  - name: Cook beans
+    text: Combine beans with optional aromatics, herbs, and bay leaf in a large pot; cover with water by several inches, add a generous pinch of salt, and simmer until fully tender, about 45 minutes. Discard aromatics.
+  - name: Mix molasses base
+    text: In a 2-cup measure, combine molasses, mustard, black pepper, and a pinch of salt. Add reserved bean-cooking liquid to reach 2 cups total; stir to dissolve molasses.
+  - name: Preheat and sauté
+    text: Preheat oven to 325°F (165°C). In a Dutch oven over medium-high heat, cook salt pork until fat renders and pork begins to brown, about 4 minutes. Add diced onion and cook until very tender and just golden, about 6 minutes. Add beans.
+  - name: Combine and bring to simmer
+    text: Add the molasses mixture and enough reserved bean-cooking liquid to just barely cover the beans. Bring to a simmer and level the surface.
+  - name: Bake
+    text: Bake uncovered until beans are extremely tender with a browned crust, about 4 hours. Check 1-2 times per hour, adding bean-cooking liquid (then hot water if needed) to prevent the top beans from drying; stir twice during baking. Stop adding liquid during the last hour unless the level is too low.
+  - name: Finish
+    text: Remove from oven and stir vigorously to form a thick, glossy glaze. If too dry, add a little boiling water; if too wet, simmer briefly to reduce. Adjust salt and pepper; add a small splash of cider vinegar if desired.
+  - name: Hold and reheat
+    text: Keep warm to serve. Refrigerate up to 1 week; reheat gently with water as needed to loosen.

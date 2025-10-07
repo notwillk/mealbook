@@ -1,0 +1,72 @@
+"@context": https://schema.org
+"@type": Recipe
+name: Split Pea and Barley Soup
+description: Hearty split pea soup with semi-pearled barley, herbs, and aromatics
+inLanguage: en-US
+url: https://pamelasalzman.com/split-pea-barley-soup-recipe/
+recipeCuisine: American
+recipeCategory: Soup
+keywords:
+  - split pea soup
+  - barley
+  - vegetarian
+  - tamari
+  - shoyu
+  - thyme
+  - sage
+  - cumin
+  - Instant Pot
+prepTime: PT0M
+cookTime: PT50M
+totalTime: PT50M
+recipeYield: "4-6 servings"
+recipeIngredient:
+  - name: Split peas, dried
+    value: "1"
+    unitCode: pound
+  - name: Barley, semi-pearled
+    value: "1/2"
+    unitCode: cup
+  - name: Water
+    value: "2"
+    unitCode: quart
+  - name: Bay leaves
+    value: "2"
+    unitCode: leaf
+  - name: Salt
+    value: "1"
+    unitCode: teaspoon
+  - name: Shoyu or tamari
+    value: "1"
+    unitCode: tablespoon
+  - name: Thyme leaves, chopped, fresh (or use 1/2 tablespoon dried)
+    value: "1"
+    unitCode: tablespoon
+  - name: Garlic, minced
+    value: "2"
+    unitCode: teaspoon
+  - name: Sage, rubbed dried
+    value: "1/2"
+    unitCode: teaspoon
+  - name: Cumin, ground
+    value: "1"
+    unitCode: large pinch
+  - name: Carrots, diced
+    value: "1 1/2"
+    unitCode: cup
+  - name: Onion, minced
+    value: "2/3"
+    unitCode: cup
+  - name: Celery, finely diced
+    value: "1/3"
+    unitCode: cup
+  - name: Green onion tops, thinly sliced (optional)
+    value: "1/4"
+    unitCode: cup
+recipeInstructions:
+  - name: Simmer base
+    text: In a large pot, combine split peas, barley, water, bay leaves, salt, shoyu or tamari, thyme, garlic, sage, and cumin. Bring to a boil over high heat, then reduce to a low simmer, cover, and cook for about 20 minutes, stirring occasionally.
+  - name: Add vegetables
+    text: Stir in carrots, onion, and celery. Cover and simmer until vegetables are tender, another 25 to 30 minutes, checking periodically and adding small amounts of water if needed.
+  - name: Finish and serve
+    text: Discard bay leaves. Ladle into bowls and garnish with green onion tops, if using.

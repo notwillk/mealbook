@@ -1,0 +1,75 @@
+"@context": https://schema.org
+"@type": Recipe
+name: Lomo saltado
+description: Peruvian beef stir-fry with sirloin, soy sauce, red onion, tomatoes, ají amarillo, and French fries, served with rice.
+inLanguage: en-US
+url: https://www.eatperu.com/lomo-saltado-recipe/
+recipeCuisine: Peruvian
+recipeCategory: Main Course
+keywords:
+  - lomo saltado
+  - Peruvian beef stir-fry
+  - Easy Peruvian
+  - Meat recipe
+  - Quick dish
+prepTime: PT30M
+cookTime: PT10M
+totalTime: PT40M
+recipeYield: "4 servings"
+recipeIngredient:
+  - name: Sirloin steak, cut into strips or cubes
+    value: 18
+    unitCode: ounce
+  - name: Red onion, chopped into chunky slices
+    value: 1
+  - name: Tomatoes, chopped into 8 slices
+    value: 2
+  - name: Ají amarillo chili pepper, sliced finely, veins and seeds removed
+    value: 1
+  - name: Fresh garlic paste
+    value: 1
+    unitCode: teaspoon
+  - name: Olive oil
+    value: 2
+    unitCode: tablespoon
+  - name: White rice, cooked
+    value: 20
+    unitCode: ounce
+  - name: Thick potato slices, ready for frying
+    value: 11
+    unitCode: ounce
+  - name: Beef stock
+    value: "1/2"
+    unitCode: cup
+  - name: Soy sauce
+    value: 4
+    unitCode: tablespoon
+  - name: Plain vinegar
+    value: 4
+    unitCode: tablespoon
+  - name: Cilantro leaves
+    value: handful
+  - name: Oregano, ground
+    value: "1/4"
+    unitCode: teaspoon
+  - name: Black pepper, freshly crushed
+    value: 1
+    unitCode: teaspoon
+  - name: Cumin, ground
+    value: 1
+    unitCode: teaspoon
+  - name: Salt
+    value: to taste
+recipeInstructions:
+  - name: Fry potatoes
+    text: Heat a pan with vegetable oil and fry the thick potato slices until golden; set aside.
+  - name: Marinate beef
+    text: Cut the sirloin into strips or cubes. Marinate with cumin, salt, vinegar, 1 tablespoon olive oil, black pepper, and soy sauce for about 10 minutes.
+  - name: Sear beef
+    text: Heat 1 tablespoon olive oil in a wok over very high heat. Drain beef from marinade and stir-fry 4-5 minutes until sealed.
+  - name: Add aromatics and stock
+    text: Add red onion, ají amarillo, and garlic paste. Stir-fry 1 minute, then add beef stock.
+  - name: Finish with tomato and fries
+    text: Add tomato and cook 30 seconds. Add oregano and the fried potatoes; toss about 10 seconds to combine.
+  - name: Serve
+    text: Serve immediately with cooked white rice and garnish with cilantro leaves.
