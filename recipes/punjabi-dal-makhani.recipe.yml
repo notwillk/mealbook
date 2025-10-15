@@ -1,0 +1,88 @@
+"@context": "https://schema.org"
+"@type": "Recipe"
+name: Punjabi Dal Makhani
+description: Slow cooked black Dal with garlic, tomato, butter & garam masala.
+inLanguage: en-GB
+url: https://maunikagowardhan.co.uk/cook-in-a-curry/punjabi-dal-makhani/
+recipeCuisine: Punjabi
+recipeCategory: Main course
+keywords: dal makhani, urad dal, black lentils, rajma, Punjabi, Indian, butter, cream
+prepTime: PT12H
+cookTime: PT3H
+totalTime: PT15H
+recipeYield: 4 servings
+recipeIngredient:
+  - name: whole urad dal (black lentil)
+    value: 280
+    unitCode: gram
+  - name: red kidney beans
+    value: 60
+    unitCode: gram
+  - name: water
+    value: 1.5
+    unitCode: liter
+  - name: vegetable oil
+    value: 3
+    unitCode: tablespoon
+  - name: asafoetida
+    value: 1
+    unitCode: pinch
+  - name: green chilli
+    value: 1
+  - name: cumin seeds
+    value: 1
+    unitCode: teaspoon
+  - name: garlic
+    value: 10
+    unitCode: clove
+  - name: white onion
+    value: 210
+    unitCode: gram
+  - name: tomatoes
+    value: 220
+    unitCode: gram
+  - name: tomato puree
+    value: 3
+    unitCode: tablespoon
+  - name: ginger
+    value: 1
+    unitCode: piece
+  - name: mild chilli powder
+    value: 1
+    unitCode: teaspoon
+  - name: garam masala powder
+    value: 1/2
+    unitCode: teaspoon
+  - name: butter
+    value: 2
+    unitCode: tablespoon
+  - name: single cream
+    value: 60
+    unitCode: milliliter
+  - name: coriander
+    value: 1
+    unitCode: tablespoon
+  - name: ginger slivers
+    value: 1/2
+    unitCode: inch
+recipeInstructions:
+  - name: Soak
+    text: Soak urad dal and kidney beans overnight in plenty of water.
+  - name: Cook lentils
+    text: Add soaked lentils and beans to a large pan with water and salt. Bring to a boil and simmer 1 hour. Skim foam. Continue cooking 1 hour 15 minutes until soft.
+  - name: Mash
+    text: Drain, reserving cooking liquid. Mash lentils to a coarse consistency, leaving some whole.
+  - name: Temper spices
+    text: Heat oil on low. Add asafoetida, slit green chilli, and cumin; sizzle 5 seconds. Add garlic and fry 30 seconds.
+  - name: Sauté onions
+    text: Increase heat to medium. Add onions and sauté 7-10 minutes until softened.
+  - name: Tomatoes and puree
+    text: Add tomatoes; cook 3 minutes, mashing. Stir in tomato puree and cook 1 minute.
+  - name: Aromatics and chilli
+    text: Add ginger and fry 1 minute. Add mild chilli powder and season to taste.
+  - name: Combine and simmer
+    text: Stir in mashed dal. Add about 650 ml reserved cooking liquid. Bring to a boil, then simmer covered 20–25 minutes, stirring occasionally.
+  - name: Finish spicing
+    text: Stir in garam masala and butter; simmer 1 minute.
+  - name: Serve
+    text: Swirl in single cream. Garnish with chopped coriander and ginger slivers. Serve with naan or pulao.
