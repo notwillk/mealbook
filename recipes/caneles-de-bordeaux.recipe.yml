@@ -1,0 +1,54 @@
+"@context": "https://schema.org"
+"@type": "Recipe"
+name: Cannelés (Canelés) de Bordeaux
+description: French canelés with a caramelized shell and a custardy center, coated with a beeswax–butter mix for shine and texture.
+inLanguage: en-US
+url: https://tasteofartisan.com/canele/
+recipeCuisine: French
+recipeCategory: Dessert
+keywords: canele, canelé de bordeaux, caneles
+prepTime: PT30M
+cookTime: PT1H
+totalTime: P1DT1H30M
+recipeYield: 16 caneles
+recipeIngredient:
+  - name: vanilla beans
+    value: 2
+  - name: milk
+    value: 500
+    unitCode: milliliter
+  - name: cane sugar
+    value: 200
+    unitCode: gram
+  - name: all-purpose flour
+    value: 100
+    unitCode: gram
+  - name: unsalted butter, melted
+    value: 50
+    unitCode: gram
+  - name: large eggs
+    value: 2
+  - name: large egg yolks
+    value: 2
+  - name: dark rum
+    value: 60
+    unitCode: milliliter
+  - name: beeswax (for molds)
+    value: 40
+    unitCode: gram
+  - name: unsalted butter (for molds)
+    value: 60
+    unitCode: gram
+recipeInstructions:
+  - name: Infuse milk with vanilla
+    text: Slit vanilla beans, scrape seeds, and add seeds and pods to milk. Bring to a gentle simmer, then turn off heat and let sit 2 minutes.
+  - name: Make batter
+    text: Whisk sugar, eggs, and yolks. Whisk in melted butter. Temper with 1/4 of the hot milk, whisk in flour until combined, then slowly whisk in remaining milk. Add rum and mix until smooth.
+  - name: Rest batter
+    text: Cover and refrigerate 24 to 48 hours, stirring well each time before using.
+  - name: Coat molds
+    text: Melt beeswax and butter together. Quickly pour into each mold to coat, pour back out, invert to drain, then chill molds until ready to bake.
+  - name: Bake
+    text: Preheat oven to 550°F (288°C). Fill molds to about 1 cm from the rim. Bake 10 minutes, then without opening the oven reduce to 375°F (190°C) and bake 45 to 50 minutes until dark brown.
+  - name: Unmold and cool
+    text: Unmold immediately onto a rack, set canelés upside down, and cool about 2 hours at room temperature. Consume the same day.

@@ -1,0 +1,55 @@
+"@context": "https://schema.org"
+"@type": "Recipe"
+name: Canelés (Cannelés) de Bordeaux
+description: This southwestern French specialty features individual cakes with a glassy, caramelized exterior contrasted with an impossibly custardy center.
+inLanguage: en-US
+url: https://www.seriouseats.com/caneles-canneles-de-bordeaux-french-pastry-recipe-how-to-make
+recipeCuisine: French
+recipeCategory: Pastry
+keywords: canelé, cannelé, Bordeaux, French pastry, vanilla, rum, beeswax
+prepTime: PT1H30M
+cookTime: PT1H10M
+totalTime: P1DT3H20M
+recipeYield: 16 canelés
+recipeIngredient:
+  - name: whole milk
+    value: 498
+    unitCode: milliliter
+  - name: confectioners' sugar, sifted, divided
+    value: 301
+    unitCode: gram
+  - name: unsalted butter, cubed
+    value: 51
+    unitCode: gram
+  - name: vanilla bean (6-inch), seeds scraped
+    value: 1
+  - name: large eggs
+    value: 2
+  - name: large egg yolks
+    value: 2
+  - name: all-purpose flour, sifted
+    value: 125
+    unitCode: gram
+  - name: Diamond Crystal kosher salt
+    value: "1/4"
+    unitCode: teaspoon
+  - name: dark rum
+    value: 28
+    unitCode: gram
+  - name: pure beeswax
+    value: 57
+    unitCode: gram
+  - name: clarified butter
+    value: 55
+    unitCode: gram
+recipeInstructions:
+  - name: Make custard base
+    text: In a medium saucepan, whisk milk, half the sugar, butter, and vanilla pod with seeds over medium heat; bring just to a simmer, then turn off heat.
+  - name: Combine and strain batter
+    text: In a bowl, gently whisk eggs, yolks, and remaining sugar to combine without aerating. Gradually whisk in warm milk mixture. Sift flour and salt into a large bowl; set a fine-mesh strainer over it and press the egg mixture through. Add rum and gently whisk to combine; push batter through a clean strainer, return vanilla pod, press plastic wrap directly on the surface, and refrigerate 24 to 48 hours.
+  - name: Prepare and wax molds
+    text: One hour before baking, heat metal canelé molds at 350°F (180°C) for 10 minutes. Melt beeswax, then stir in clarified butter. Fill each hot mold to the rim with wax, pour back out, let excess drip, optionally heat exterior to shed more, and freeze molds 30 minutes.
+  - name: Fill molds and start bake
+    text: Preheat oven to 500°F (260°C) with a baking sheet inside. Remove vanilla pod, gently whisk rested batter until homogenous, and fill molds almost to the top, leaving about 1 cm. Place molds on the hot, foil-lined sheet and bake 15 minutes.
+  - name: Finish bake and cool
+    text: Reduce oven to 400°F (200°C) and bake 40 to 50 minutes until deep golden brown, tenting if needed. If canelés haven’t settled, briefly lift edges to vent steam. Test color; cool unmolded canelés about 30 minutes. Best within 5 hours of baking.
