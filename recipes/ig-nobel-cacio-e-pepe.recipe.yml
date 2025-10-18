@@ -1,0 +1,39 @@
+"@context": https://schema.org
+"@type": Recipe
+name: Ig Nobel Cacio e Pepe
+description: Stable Cacio e Pepe using a starch-to-cheese ratio of 2-3% to prevent clumping; example uses 4 g starch per 160 g pecorino.
+inLanguage: en
+url: https://arxiv.org/html/2501.00536v1
+  # https://pubs.aip.org/aip/pof/article/37/4/044122/3345324/Phase-behavior-of-Cacio-e-Pepe-sauce
+recipeCuisine: Italian
+recipeCategory: Pasta
+keywords: cacio e pepe, pecorino, starch gel, pasta water, phase behavior
+recipeYield: 2 servings
+recipeIngredient:
+  - name: "pasta (tonnarelli preferred)"
+    value: 240
+    unitCode: gram
+  - name: "pecorino romano cheese, finely grated"
+    value: 160
+    unitCode: gram
+  - name: "powdered starch (potato or corn)"
+    value: 4
+    unitCode: gram
+  - name: "water (for starch gel)"
+    value: 40
+    unitCode: gram
+  - name: "black pepper, freshly ground"
+    value: "to taste"
+recipeInstructions:
+  - name: Make starch gel
+    text: Dissolve 4 g powdered starch in 40 g water and heat gently until it thickens and turns from cloudy to nearly clear; let cool slightly or temper with a little cold water.
+  - name: Blend cheese with gel
+    text: Combine the cooled starch gel with 160 g finely grated pecorino; blend until smooth and homogeneous. If needed add a splash of water. Season with freshly ground black pepper.
+  - name: Cook pasta
+    text: Boil pasta in slightly salted water until al dente; reserve some pasta cooking water before draining.
+  - name: Cool pasta briefly
+    text: After draining let pasta cool for up to 1 minute (longer only for very large batches) to avoid overheating the sauce.
+  - name: Sauce and adjust
+    text: Toss pasta with the cheese-starch sauce until coated; adjust consistency with reserved pasta water added gradually.
+  - name: Serve
+    text: Serve hot; this stabilized sauce tolerates gentle reheating without clumping.
