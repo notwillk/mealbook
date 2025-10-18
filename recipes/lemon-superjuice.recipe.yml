@@ -1,0 +1,35 @@
+"@context": https://schema.org
+"@type": Recipe
+name: Lemon Superjuice
+description: Increase lemon juice yield, keep fresh for up to 1-2 weeks
+inLanguage: en-US
+url: https://www.kevinkos.com/super-juice-calculator-1
+keywords:
+  - lemon
+  - superjuice
+recipeIngredient:
+  - name: Lemon peels
+    value: 6
+    unitCode: grams
+  - name: Lemon juice
+    value: 1
+    unitCode: count
+  - name: Citric acid
+    value: 6
+    unitCode: grams
+  - name: Water
+    value: 100
+    unitCode: milliliter
+recipeInstructions:
+  - name: Step 1
+    text: Peel the citrus of choice, weigh the peels, and put them in a jar with citric acid
+  - name: Step 2
+    text: Shake well and leave it for up to two hours to create an “oleo citrate”
+  - name: Step 3
+    text: Place everything from the jar (including the peels) into a blender and add water, rinse inside of a jar with water to get out all the oleo citrate
+  - name: Step 4
+    text: Juice the lemon and add the juice into the blender as well
+  - name: Step 5
+    text: Blend for half a minute then strain through a cheesecloth
+  - name: Step 6
+    text: Bottle the Super Juice, keep it in the fridge and use it within a week
