@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+q="${*:-}"
+[ -n "$q" ] || { echo "usage: $(basename "$0") <search terms...>" >&2; exit 2; }
+q="$q recipe"
+
+UA="${CURL_UA:-Mozilla/5.0 (Macintosh; Intel Mac OS X 14_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36}"
+REF="${CURL_REFERRER:-https://www.google.com/}"
+
+enc() { printf '%s' "$1" | jq -sRr @uri; }
+
+if [ -z "${url:-}" ] && [ -n "${BRAVE_TOKEN:-}" ]; then
+  url="$(curl -sS --compressed -G 'https://api.search.brave.com/res/v1/web/search' \
+    -H "X-Subscription-Token: $BRAVE_TOKEN" \
+    --data-urlencode "q=$q" --data "count=1" \
+    | jq -r '.web.results[0].url // empty')"
+fi
+
+if [ -z "${url:-}" ] && [ -n "${GOOGLE_API_KEY:-}" ] && [ -n "${GOOGLE_CX:-}" ]; then
+  url="$(curl -sS --get 'https://www.googleapis.com/customsearch/v1' \
+    --data-urlencode "q=$q" --data "key=$GOOGLE_API_KEY&cx=$GOOGLE_CX&num=1" \
+    | jq -r '.items[0].link // empty')"
+fi
+
+if [ -z "${url:-}" ] && [ -n "${MOJEEK_API_KEY:-}" ]; then
+  url="$(curl -sS --get 'https://www.mojeek.com/search' \
+    --data-urlencode "q=$q" --data "api_key=$MOJEEK_API_KEY&t=1&fmt=json" \
+    | jq -r '.response.results[0].url // empty')"
+fi
+
+if [ -z "${url:-}" ] && [ -n "${SEARXNG_URL:-}" ]; then
+  url="$(curl -sS --get "$SEARXNG_URL/search" \
+    --data-urlencode "q=$q" --data "format=json&language=en-US" \
+    | jq -r '.results[0].url // empty')"
+fi
+
+if [ -z "${url:-}" ]; then
+  rss="$(mktemp -t bing.XXXXXX)"
+  curl -fsSL --compressed -A "$UA" -e "$REF" \
+    "https://www.bing.com/search?format=rss&q=$(enc "$q")&setmkt=en-US" \
+    -o "$rss" || true
+  url="$(perl -0ne 'while(/<item>(.*?)<\/item>/sg){ if($1 =~ /<link>(.*?)<\/link>/s){ print "$1\n"; exit } }' "$rss" \
+    | sed -n '1p' || true)"
+  rm -f "$rss"
+fi
+
+[ -n "${url:-}" ] && printf '%s\n' "$url" || { echo "no results" >&2; exit 1; }

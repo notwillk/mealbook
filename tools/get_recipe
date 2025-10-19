@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# usage: $(basename "$0") <search terms...>
+[ $# -gt 0 ] || { echo "usage: $(basename "$0") <search terms...>" >&2; exit 2; }
+
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+GET_URL="$DIR/get_recipe_url"
+GET_RECIPE="$DIR/get_recipe_from_url"
+
+URL_TIMEOUT="${URL_TIMEOUT:-15}"
+RECIPE_TIMEOUT="${RECIPE_TIMEOUT:-120}"
+DEBUG="${DEBUG:-0}"
+
+# pick a timeout cmd if available
+if command -v gtimeout >/dev/null 2>&1; then TO="gtimeout"
+elif command -v timeout >/dev/null 2>&1; then TO="timeout"
+else TO=""
+fi
+
+log(){ [ "$DEBUG" = "0" ] || printf '[get_recipe] %s\n' "$*" >&2; }
+
+query="$*"
+log "query: $query"
+
+# step 1: resolve URL with timeout
+if [ -n "$TO" ]; then
+  url="$($TO "$URL_TIMEOUT" "$GET_URL" "$query" | sed -n '1p' | tr -d '\r\n' || true)"
+else
+  url="$("$GET_URL" "$query" | sed -n '1p' | tr -d '\r\n' || true)"
+fi
+
+[ -n "${url:-}" ] || { echo "error: no URL found for: $query" >&2; exit 1; }
+log "url: $url"
+
+# step 2: extract recipe with timeout
+if [ -n "$TO" ]; then
+  exec "$TO" "$RECIPE_TIMEOUT" "$GET_RECIPE" "$url"
+else
+  exec "$GET_RECIPE" "$url"
+fi

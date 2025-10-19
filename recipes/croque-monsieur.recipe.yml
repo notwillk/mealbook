@@ -1,0 +1,54 @@
+---
+"@context": "https://schema.org"
+"@type": "Recipe"
+name: Croque Monsieur
+description: A delicious French ham and cheese sandwich, made with gruyere, parmesan, ham and a simple béchamel sauce, toasted in the oven.
+inLanguage: en-US
+url: https://tastesbetterfromscratch.com/croque-monsieur/
+recipeCuisine: French
+recipeCategory: Main Dish
+keywords:
+  - French
+  - ham and cheese
+  - sandwich
+prepTime: PT20M
+cookTime: PT15M
+totalTime: PT35M
+recipeYield: 4
+recipeIngredient:
+  - name: Béchamel Sauce
+    value: 1 cup
+  - name: Gruyère cheese
+    value: 1 cup
+    unitCode: cup
+  - name: Parmesan cheese
+    value: 1/2 cup
+    unitCode: cup
+  - name: Ham
+    value: 4 slices
+  - name: Butter
+    value: 2 tablespoons
+    unitCode: tablespoon
+  - name: All-purpose flour
+    value: 1 tablespoon
+    unitCode: tablespoon
+  - name: Milk
+    value: 1 cup
+    unitCode: cup
+  - name: Salt and pepper
+    value: to taste
+  - name: Mustard
+    value: 1 teaspoon
+    unitCode: teaspoon
+  - name: Nutmeg
+    value: 1/4 teaspoon
+    unitCode: teaspoon
+  - name: Bread
+    value: 4 slices
+recipeInstructions:
+  - name: Make the Béchamel Sauce
+    text: Melt butter in a saucepan. Whisk in flour and cook, stirring constantly, for about 3 minutes. Gradually add milk, stirring well until the mixture is smooth. Cook, stirring, until sauce is thickened. Season with a little bit of salt and pepper. Remove from heat and whisk in mustard and nutmeg.
+  - name: Assemble the Sandwich
+    text: Lay all of your bread slices on the counter and spread a thin layer of béchamel sauce on each slice. Add one layer of ham and a sprinkle of cheese to half of the bread slices. Top the ham and cheese with another slice of bread, making sure to leave the béchamel facing up. Sprinkle the top layer of bread with more parmesan and gruyere.
+  - name: Bake the Sandwich
+    text: Bake in the oven until bread is toasted and cheese is melted and bubbly.

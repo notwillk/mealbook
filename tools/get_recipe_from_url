@@ -10,7 +10,48 @@ usage(){ echo "usage: $(basename "$0") <url>"; exit 2; }
 URL="$1"
 
 HTML_FILE="$(mktemp -t recipe_html.XXXXXX)"
-curl -fsSL "$URL" -o "$HTML_FILE"
+COOKIE_JAR="$(mktemp -t cookies.XXXXXX)"
+UA_DEFAULT='Mozilla/5.0 (Macintosh; Intel Mac OS X 14_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36'
+REF_DEFAULT='https://www.google.com/'
+ACCEPT_HDR='Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+LANG_HDR='Accept-Language: en-US,en;q=0.9'
+
+fetch_direct() {
+  curl -4 -fsSL --retry 3 --retry-delay 1 --max-time 30 --compressed --http2 \
+    -A "${CURL_UA:-$UA_DEFAULT}" \
+    -e "${CURL_REFERRER:-$REF_DEFAULT}" \
+    -H "$ACCEPT_HDR" \
+    -H "$LANG_HDR" \
+    -H 'Connection: keep-alive' \
+    -H 'Upgrade-Insecure-Requests: 1' \
+    -H 'Sec-Fetch-Site: same-origin' \
+    -H 'Sec-Fetch-Mode: navigate' \
+    -H 'Sec-Fetch-Dest: document' \
+    -H 'sec-ch-ua: "Chromium";v="127", "Not)A;Brand";v="24", "Google Chrome";v="127"' \
+    -H 'sec-ch-ua-mobile: ?0' \
+    -H 'sec-ch-ua-platform: "macOS"' \
+    -c "$COOKIE_JAR" -b "$COOKIE_JAR" \
+    "$URL" -o "$HTML_FILE"
+}
+
+fetch_reader() {
+  local hostless="${URL#http://}"; hostless="${hostless#https://}"
+  local rj="https://r.jina.ai/http://${hostless}"
+  curl -4 -fsSL --retry 3 --retry-delay 1 --max-time 30 \
+    -A "${CURL_UA:-$UA_DEFAULT}" \
+    -H 'Accept: text/plain,*/*;q=0.8' \
+    "$rj" -o "$HTML_FILE"
+}
+
+# Try direct. If it fails or looks blocked, fall back to reader.
+if ! fetch_direct; then
+  fetch_reader
+else
+  # Heuristics for blocks
+  if grep -qiE 'forbidden|blocked|access denied|captcha' "$HTML_FILE" || [ ! -s "$HTML_FILE" ]; then
+    fetch_reader
+  fi
+fi
 
 # Extract all <script type="application/ld+json"> blocks into files
 LD_DIR="$(mktemp -d -t ldjson.XXXXXX)"
@@ -33,8 +74,13 @@ done
 # Fallback: small plaintext if no JSON-LD
 TEXT_SNIP=""
 if [ -z "$FOUND" ]; then
-  TEXT_SNIP="$(sed -e 's/<br[[:space:]]*\/\?>/\n/gi' -e 's/<\/p>/\n/gi' -e 's/<[^>]*>/ /g' "$HTML_FILE" \
-    | tr -s '[:space:]' ' ' | head -c 12000)"
+  # If the file is reader-mode text, use it as-is; otherwise strip HTML.
+  if file "$HTML_FILE" | grep -qi 'text'; then
+    TEXT_SNIP="$(head -c 12000 "$HTML_FILE")"
+  else
+    TEXT_SNIP="$(sed -e 's/<br[[:space:]]*\/\?>/\n/gi' -e 's/<\/p>/\n/gi' -e 's/<[^>]*>/ /g' "$HTML_FILE" \
+      | tr -s '[:space:]' ' ' | head -c 12000)"
+  fi
 fi
 
 PROMPT_FILE="$(mktemp -t recipe_prompt.XXXXXX)"
@@ -104,5 +150,14 @@ mkdir -p recipes
 OUT="recipes/${SLUG}.recipe.yml"
 sed '/^```/d' "$YAML_FILE_TMP" > "$OUT"
 
+
+# Write YAML and validate non-empty
+sed '/^```/d' "$YAML_FILE_TMP" > "$OUT"
+
+# Success only if file exists and has content
+if [ ! -s "$OUT" ]; then
+  echo "warning: empty YAML (model returned no content)" >&2
+  exit 3
+fi
+
 echo "$OUT"
-[ -s "$OUT" ] || echo "warning: empty YAML (model returned no content)" >&2
