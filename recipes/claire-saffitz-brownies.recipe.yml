@@ -1,0 +1,75 @@
+"@context": "https://schema.org"
+"@type": "Recipe"
+name: Claire Saffitz Brownies
+description: Super dense, fudgy, and chewy brownies with a distinctive flavor reminiscent of malted milk balls
+inLanguage: en-US
+url: https://www.hummingbirdhigh.com/2022/02/claire-saffitz-brownies.html
+recipeCuisine: American
+recipeCategory: Dessert
+keywords:
+  - brownies
+  - malted milk powder
+  - chocolate
+prepTime: PT10M
+cookTime: PT35M
+totalTime: PT1H10M
+recipeYield: 16
+recipeIngredient:
+  - name: all-purpose flour
+    value: 3.5 oz
+    unitCode: oz
+  - name: malted milk powder
+    value: 2 tbsp
+    unitCode: tbsp
+  - name: kosher salt
+    value: 1 tsp
+    unitCode: tsp
+  - name: Dutch-processed cocoa powder
+    value: 0.75 oz
+    unitCode: oz
+  - name: water
+    value: 2 oz
+    unitCode: oz
+  - name: dark chocolate
+    value: 5 oz
+    unitCode: oz
+  - name: unsalted butter
+    value: 3 oz
+    unitCode: oz
+  - name: canola oil
+    value: 2 oz
+    unitCode: oz
+  - name: dark brown sugar
+    value: 3.75 oz
+    unitCode: oz
+  - name: granulated sugar
+    value: 3.5 oz
+    unitCode: oz
+  - name: large egg
+    value: 1
+    unitCode: 
+  - name: large egg yolks
+    value: 2
+    unitCode: 
+  - name: pure vanilla extract
+    value: 1.5 tsp
+    unitCode: tsp
+  - name: milk chocolate
+    value: 6 oz
+    unitCode: oz
+  - name: milk chocolate
+    value: 4 oz
+    unitCode: oz
+recipeInstructions:
+  - name: Prep the oven and baking pan
+    text: Position a rack in the center of the oven and preheat the oven to 350°F. Lightly spray an 8-inch square pan with cooking spray and line with parchment paper, leaving a 2-inch overhang on each of the pan's sides. Spray the parchment paper, too.
+  - name: Mix the dry ingredients
+    text: In a medium bowl, whisk together the flour, milk powder, and salt.
+  - name: Bloom the cocoa powder
+    text: In a large heatproof bowl, whisk together the cocoa powder and hot water until smooth.
+  - name: Melt the dark chocolate, butter, and oil
+    text: Add the dark chocolate, butter, and oil to the bowl with the cocoa powder and water. Place the bowl over a medium, heavy-bottomed saucepan filled with a few inches of simmering water (be sure the bottom of the bowl does not touch the water).
+  - name: Add the sugars, eggs, and vanilla
+    text: Once lukewarm, whisk the sugars into the chocolate mixture. Add the egg, egg yolks, and vanilla and whisk until combined.
+  - name: Add the dry ingredients and milk chocolate
+    text: Sprinkle the dry ingredients over the batter all at once and use a rubber spatula to mix until just combined.

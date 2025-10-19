@@ -1,0 +1,133 @@
+name: Issue Opened
+
+on:
+  issues:
+    types:
+      - opened
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  create-recipe-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine recipe input
+        id: prepare
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const urlPattern = /(https?:\/\/[^\s]+)/i;
+            const body = issue.body || '';
+            const title = issue.title || '';
+            const bodyMatch = body.match(urlPattern);
+            const titleMatch = title.match(urlPattern);
+            const match = bodyMatch || titleMatch;
+            if (match) {
+              core.setOutput('mode', 'url');
+              core.setOutput('value', match[0]);
+            } else {
+              const combined = `${title}\n\n${body}`.trim();
+              const normalized = combined.replace(/\s+/g, ' ').slice(0, 500);
+              core.setOutput('mode', 'search');
+              core.setOutput('value', normalized);
+            }
+            core.setOutput('issue-number', issue.number.toString());
+            core.setOutput('issue-url', issue.html_url);
+
+      - name: Generate recipe
+        id: generate
+        run: |
+          set -euo pipefail
+          mode="${{ steps.prepare.outputs.mode }}"
+          value="${{ steps.prepare.outputs.value }}"
+          if [ -z "$value" ]; then
+            echo "issue input was empty" >&2
+            exit 1
+          fi
+          if [ "$mode" = "url" ]; then
+            path="$(tools/get_recipe_from_url "$value")"
+          else
+            path="$(tools/get_recipe "$value")"
+          fi
+          echo "path=$path" >> "$GITHUB_OUTPUT"
+        env:
+          FIREWORKS_API_KEY: ${{ secrets.FIREWORKS_API_KEY }}
+          BRAVE_TOKEN: ${{ secrets.BRAVE_TOKEN }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          GOOGLE_CX: ${{ secrets.GOOGLE_CX }}
+          MOJEEK_API_KEY: ${{ secrets.MOJEEK_API_KEY }}
+          SEARXNG_URL: ${{ secrets.SEARXNG_URL }}
+
+      - name: Commit recipe
+        id: commit
+        run: |
+          set -euo pipefail
+          branch="issue-${{ steps.prepare.outputs.issue-number }}-${{ github.run_id }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add "${{ steps.generate.outputs.path }}"
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git commit -m "Add recipe for issue #${{ steps.prepare.outputs.issue-number }}"
+          git push origin "$branch"
+          echo "branch=$branch" >> "$GITHUB_OUTPUT"
+          echo "has_changes=true" >> "$GITHUB_OUTPUT"
+
+      - name: Open pull request
+        if: steps.commit.outputs.has_changes == 'true'
+        uses: actions/github-script@v7
+        env:
+          BRANCH: ${{ steps.commit.outputs.branch }}
+          ISSUE_NUMBER: ${{ steps.prepare.outputs.issue-number }}
+          ISSUE_URL: ${{ steps.prepare.outputs.issue-url }}
+          RECIPE_PATH: ${{ steps.generate.outputs.path }}
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const issueNumber = Number(process.env.ISSUE_NUMBER);
+            const defaultBranch = context.payload.repository.default_branch;
+            const branch = process.env.BRANCH;
+            const title = `Add recipe for issue #${issueNumber}`;
+            const bodyLines = [
+              `Resolves #${issueNumber}.`,
+              '',
+              `Generated from ${process.env.ISSUE_URL}.`,
+              '',
+              `Recipe file: \`${process.env.RECIPE_PATH}\`.`
+            ];
+            const existing = await github.paginate(github.rest.pulls.list, {
+              owner,
+              repo,
+              head: `${owner}:${branch}`,
+              state: 'open'
+            });
+            if (existing.length > 0) {
+              core.info(`Pull request already exists: ${existing[0].html_url}`);
+              return;
+            }
+            const { data: pr } = await github.rest.pulls.create({
+              owner,
+              repo,
+              head: branch,
+              base: defaultBranch,
+              title,
+              body: bodyLines.join('\n')
+            });
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number: issueNumber,
+              body: `Created PR ${pr.html_url}`
+            });

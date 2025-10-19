@@ -6,38 +6,9 @@ cd "$ROOT_DIR"
 
 if upstream=$(git rev-parse --abbrev-ref --symbolic-full-name @{upstream} 2>/dev/null); then
   base="$(git merge-base HEAD "$upstream")"
-  range="$base..HEAD"
 else
   root_commit="$(git rev-list --max-parents=0 HEAD | tail -n1)"
-  range="$root_commit..HEAD"
+  base="$root_commit"
 fi
 
-recipes=()
-menus=()
-
-# Read changed files (added, copied, modified, renamed), NUL-separated
-while IFS= read -r -d '' f; do
-  [[ -f "$f" ]] || continue
-  case "$f" in
-    recipes/*.recipe.json|recipes/*.recipe.yaml|recipes/*.recipe.yml)
-      recipes+=("$f");;
-    menus/*.menu.json|menus/*.menu.yaml|menus/*.menu.yml)
-      menus+=("$f");;
-  esac
-done < <(git diff --name-only --diff-filter=ACMR -z "$range")
-
-status=0
-if (( ${#recipes[@]} )); then
-  ./scripts/validate.sh schemas/recipe.schema.json "${recipes[@]}" || status=1
-fi
-if (( ${#menus[@]} )); then
-  ./scripts/validate.sh schemas/menu.schema.json "${menus[@]}" || status=1
-fi
-
-if (( ${#recipes[@]} + ${#menus[@]} == 0 )); then
-  echo "No relevant changes. Skipping validation."
-else
-  echo "Validated ${#recipes[@]} recipe(s), ${#menus[@]} menu(s)."
-fi
-
-exit "$status"
+./scripts/validate_changes.sh "$base" HEAD
