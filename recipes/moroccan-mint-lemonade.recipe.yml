@@ -1,0 +1,46 @@
+"@context": "https://schema.org"
+"@type": "Recipe"
+name: "Moroccan Mint Lemonade"
+description: "Lemonade infused with fresh mint leaves, a refreshing and thirst quenching drink"
+inLanguage: en
+url: https://coupleinthekitchen.com/moroccan-mint-lemonade-recipe/
+recipeCuisine: Moroccan
+recipeCategory: Cocktails
+keywords:
+  - Lemonade
+  - mint
+  - mint lemonade
+  - moroccan mint lemonade
+prepTime: "PT8M"
+totalTime: "PT8M"
+recipeYield: 8
+recipeIngredient:
+  - name: lemons
+    value: 2
+    unitCode: count
+  - name: Juice of lemons
+    value: 2
+    unitCode: count
+  - name: fresh mint
+    value: 35
+    unitCode: leaves
+  - name: cold water
+    value: 4
+    unitCode: cups
+  - name: ice
+    value: 2
+    unitCode: cups
+  - name: granulated sugar
+    value: 1
+    unitCode: cups
+recipeInstructions:
+  - name: Combine all ingredients in a blender.
+    text: Combine all ingredients in a blender.
+  - name: Blend until all the lemon pieces are pureed, about 3 minutes.
+    text: Blend until all the lemon pieces are pureed, about 3 minutes.
+  - name: Empty the blender though a fine mesh strainer, into a pitcher.
+    text: Empty the blender though a fine mesh strainer, into a pitcher.
+  - name: Discard the pulp.
+    text: Discard the pulp.
+  - name: Serve the mint lemonade over ice with additional mint garnish.
+    text: Serve the mint lemonade over ice with additional mint garnish.

@@ -1,0 +1,108 @@
+#!/usr/bin/env bash
+set -euo pipefail
+shopt -s nullglob
+
+# deps: curl, jq, perl, sed, awk, tr
+CHAT_CLI="${CHAT_CLI:-tools/fireworks}"
+MODEL="${MODEL:-}" # optional
+usage(){ echo "usage: $(basename "$0") <url>"; exit 2; }
+[ $# -eq 1 ] || usage
+URL="$1"
+
+HTML_FILE="$(mktemp -t recipe_html.XXXXXX)"
+curl -fsSL "$URL" -o "$HTML_FILE"
+
+# Extract all <script type="application/ld+json"> blocks into files
+LD_DIR="$(mktemp -d -t ldjson.XXXXXX)"
+perl -0777 -ne 'while(/<script[^>]*type=["'\'' ]application\/ld\+json["'\'' ][^>]*>(.*?)<\/script>/sig){print $1,"\n__LDSEP__\n"}' \
+  "$HTML_FILE" \
+| awk -v LD_DIR="$LD_DIR" 'BEGIN{n=0; RS="__LDSEP__\n"} length($0){fn=sprintf("%s/%03d.json",LD_DIR,++n); print > fn; close(fn)}'
+
+# Find first JSON-LD object whose @type contains Recipe
+RECIPE_JSON="$(mktemp -t recipe.XXXXXX.json)"
+FOUND=""
+for f in "$LD_DIR"/*.json; do
+  if jq -c '.. | objects
+    | select(has("@type"))
+    | select((."@type"=="Recipe") or ((."@type"|type)=="array" and (map(tostring)|index("Recipe")!=null)))' \
+    "$f" | head -n1 > "$RECIPE_JSON"; then
+    [ -s "$RECIPE_JSON" ] && { FOUND="yes"; break; }
+  fi
+done
+
+# Fallback: small plaintext if no JSON-LD
+TEXT_SNIP=""
+if [ -z "$FOUND" ]; then
+  TEXT_SNIP="$(sed -e 's/<br[[:space:]]*\/\?>/\n/gi' -e 's/<\/p>/\n/gi' -e 's/<[^>]*>/ /g' "$HTML_FILE" \
+    | tr -s '[:space:]' ' ' | head -c 12000)"
+fi
+
+PROMPT_FILE="$(mktemp -t recipe_prompt.XXXXXX)"
+{
+  cat <<'TXT'
+Given a URL with a recipe, please extract the recipe from it, and make a file named <name_of_recipe>.recipe.yml (name of recipe should not contain the word "recipe"). Format as schema.org Recipe YAML exactly like my house style:
+- Top-level keys: @context, @type, name, description, inLanguage, url, recipeCuisine, recipeCategory, keywords, prepTime, cookTime, totalTime, recipeYield.
+- recipeIngredient: array of objects with values for name, value, and unitCode (only if not empty). Use strings for fractions (e.g., "1/4"). Keep unitCode human-readable (teaspoon, cup, gram). unitCode should be omitted if there is no unit.
+- recipeInstructions: array of objects with values name and text only.
+- Only YAML. No JSON. No prose. No nutrition/ratings/author unless I ask. Use ISO 8601 durations. Mirror my quoting style (quote @context and @type; URL may be unquoted).
+- use appropriate string encoding as necessary to ensure valid YAML.
+- use "@context": "https://schema.org"
+- use "@type": "Recipe"
+- if any property is empty do not include it.  E.g. unitCode can be omitted if there is no unit.
+TXT
+  printf "URL: %s\n\n" "$URL"
+
+  if [ -s "$RECIPE_JSON" ]; then
+    cat <<'TXT'
+Here is the page's JSON-LD for the Recipe:
+```json
+TXT
+    jq -c . "$RECIPE_JSON"
+    cat <<'TXT'
+```
+
+TXT
+  else
+    cat <<'TXT'
+JSON-LD not found. Here is a small plaintext excerpt of the page:
+```text
+TXT
+    printf "%s\n" "$TEXT_SNIP"
+    cat <<'TXT'
+```
+
+TXT
+  fi
+
+  cat <<'TXT'
+Output a single fenced YAML code block in the exact house style.
+TXT
+} > "$PROMPT_FILE"
+
+RESP_FILE="$(mktemp -t recipe_resp.XXXXXX)"
+if [ -n "$MODEL" ]; then
+  "$CHAT_CLI" chat "$(cat "$PROMPT_FILE")" --model "$MODEL" > "$RESP_FILE"
+else
+  "$CHAT_CLI" chat "$(cat "$PROMPT_FILE")" > "$RESP_FILE"
+fi
+
+# Extract first fenced code block from response
+YAML_FILE_TMP="$(mktemp -t recipe_yaml.XXXXXX)"
+if awk 'BEGIN{f=0} /^```/{ if(!f){f=1;next} else{exit} } f{print}' "$RESP_FILE" \
+  | sed '1{/^yaml[[:space:]]*$/d;}' > "$YAML_FILE_TMP" && [ -s "$YAML_FILE_TMP" ]; then :; else cp "$RESP_FILE" "$YAML_FILE_TMP"; fi
+
+# Derive slug from YAML name:, fallback to URL
+NAME_RAW="$(awk -F': *' '{k=$1;gsub(/^[[:space:]]+|[[:space:]]+$/,"",k); if(tolower(k)=="name"){print $2; exit}}' "$YAML_FILE_TMP" \
+  | sed -E 's/^[[:space:]]*["'\''`]?(.*[^"'\''`])[[:space:]]*["'\''`]?$/\1/')"
+if [ -z "${NAME_RAW// /}" ]; then
+  NAME_RAW="$(basename "${URL%%\?*}" | sed -E 's/\.[a-zA-Z0-9]+$//')"
+fi
+SLUG="$(printf '%s' "$NAME_RAW" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/-/g; s/^-+|-+$//g')"
+[ -n "$SLUG" ] || { echo "error: could not determine slug" >&2; exit 1; }
+
+mkdir -p recipes
+OUT="recipes/${SLUG}.recipe.yml"
+sed '/^```/d' "$YAML_FILE_TMP" > "$OUT"
+
+echo "$OUT"
+[ -s "$OUT" ] || echo "warning: empty YAML (model returned no content)" >&2
