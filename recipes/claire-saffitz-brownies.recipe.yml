@@ -47,10 +47,8 @@ recipeIngredient:
     unitCode: oz
   - name: large egg
     value: 1
-    unitCode: 
   - name: large egg yolks
     value: 2
-    unitCode: 
   - name: pure vanilla extract
     value: 1.5 tsp
     unitCode: tsp
