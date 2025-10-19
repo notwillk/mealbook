@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Config
+: "${FIREWORKS_API_KEY:?Set FIREWORKS_API_KEY in your environment}"
+FIREWORKS_BASE="${FIREWORKS_BASE:-https://api.fireworks.ai/inference/v1}"
+CURL_IMG="${CURL_IMG:-curlimages/curl:8.10.1}"
+JQ_IMG="${JQ_IMG:-ghcr.io/jqlang/jq:1.7.1}"
+
+# Pull once, stay quiet next runs
+ensure_image() {
+  docker image inspect "$1" >/dev/null 2>&1 || {
+    echo "📥 Pulling $1…"
+    docker pull -q "$1" >/dev/null
+  }
+}
+ensure_image "$CURL_IMG"
+ensure_image "$JQ_IMG"
+
+chat() {
+  [ $# -ge 1 ] || { echo "usage: $0 chat <prompt...> [--model <id>]" >&2; exit 2; }
+  MODEL="${MODEL:-accounts/fireworks/models/llama-v3p1-70b-instruct}"
+  PROMPT=""
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      --model) shift; [ $# -gt 0 ] || { echo "missing value for --model" >&2; exit 2; }; MODEL="$1"; shift ;;
+      *) PROMPT="$PROMPT $1"; shift ;;
+    esac
+  done
+  PROMPT="${PROMPT# }"
+
+  # Build JSON -> POST -> extract text
+  docker run --rm -i "$JQ_IMG" -n \
+    --arg m "$MODEL" --arg p "$PROMPT" \
+    '{model:$m,messages:[{role:"user",content:$p}]}' \
+  | docker run --rm -i -e FIREWORKS_API_KEY="$FIREWORKS_API_KEY" "$CURL_IMG" \
+      --fail-with-body --silent --show-error \
+      -H "Authorization: Bearer $FIREWORKS_API_KEY" \
+      -H "Content-Type: application/json" \
+      -X POST "$FIREWORKS_BASE/chat/completions" \
+      -d @- \
+  | docker run --rm -i "$JQ_IMG" -r \
+      '.choices[0].message.content // .choices[0].text // .error.message // "No content"'
+}
+
+raw() {
+  [ $# -ge 1 ] || { echo "usage: $0 raw <path> [json-file|-|json]" >&2; exit 2; }
+  EP="$1"; shift || true
+  if [ "${1:-}" = "-" ] || [ -z "${1:-}" ]; then BODY="$(cat)"
+  elif [ -f "${1:-}" ]; then BODY="$(cat "$1")"
+  else BODY="${1:-}"; fi
+
+  printf '%s' "$BODY" \
+  | docker run --rm -i -e FIREWORKS_API_KEY="$FIREWORKS_API_KEY" "$CURL_IMG" \
+      --fail-with-body --silent --show-error \
+      -H "Authorization: Bearer $FIREWORKS_API_KEY" \
+      -H "Content-Type: application/json" \
+      -X POST "$FIREWORKS_BASE/$EP" \
+      -d @-
+}
+
+case "${1:-}" in
+  chat) shift; chat "$@";;
+  raw)  shift; raw "$@";;
+  *)    echo "usage: $0 chat <prompt...> [--model <id>] | $0 raw <path> [json|-]" >&2; exit 2;;
+esac
