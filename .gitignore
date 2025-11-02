@@ -2,3 +2,5 @@ node_modules
 dist
 .pnpm-store
 .pnpm-cache
+generated
+.DS_Store

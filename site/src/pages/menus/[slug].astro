@@ -1,60 +1,22 @@
 ---
-import path from 'node:path';
-import { readdir, readFile } from 'node:fs/promises';
-import { fileURLToPath } from 'node:url';
-import YAML from 'yaml';
-import type { Menu } from '../../types/schema';
-import { resolveRawBase } from '../../utils/git';
+import MenuDetailPage from '../../components/MenuDetailPage';
+import type { Props } from '../../utils/menus';
+export { getMenuStaticPaths as getStaticPaths } from '../../utils/menus';
 
-type MenuProps = {
-  data: Menu;
-  url: string;
-};
+const { data: menu, url } = Astro.props as Props;
 
-export async function getStaticPaths() {
-  const menusDir = fileURLToPath(new URL('../../../../menus/', import.meta.url));
-  const entries = await readdir(menusDir, { withFileTypes: true });
-  const repoRoot = path.resolve(menusDir, '..');
-  const rawBaseUrl = await resolveRawBase(repoRoot, 'menus');
-  const paths = await Promise.all(
-    entries
-      .filter((entry) => entry.isFile() && /\.menu\.ya?ml$/i.test(entry.name))
-      .map(async (entry) => {
-        const slug = entry.name.replace(/\.menu\.ya?ml$/i, '');
-        const content = await readFile(path.join(menusDir, entry.name), 'utf-8');
-        const data = YAML.parse(content) as Menu;
-        return {
-          params: { slug },
-          props: { data, url: `${rawBaseUrl}${entry.name}` },
-        };
-      }),
-  );
-
-  return paths;
-}
-
-const { data, url } = Astro.props as MenuProps;
-
-const menuRecord = data as Record<string, unknown>;
-const title =
-  typeof menuRecord.name === 'string' && menuRecord.name.length > 0
-    ? (menuRecord.name as string)
-    : 'Menu';
-const description =
-  typeof menuRecord.description === 'string' ? (menuRecord.description as string) : '';
+const title = menu.name;
+const description = menu.description;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>{title}</title>
+    {title && <title>{title}</title>}
     {description && <meta name="description" content={description} />}
   </head>
   <body>
-    <p>
-      <a href={url}>View raw menu file</a>
-    </p>
-    <pre>{JSON.stringify(data, null, 2)}</pre>
+    <MenuDetailPage menu={menu} url={url} />
   </body>
 </html>

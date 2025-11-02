@@ -1,6 +1,2 @@
-import type { FromSchema } from 'json-schema-to-ts';
-import menuSchemaJson from '../../../schemas/menu.schema.json';
-import recipeSchemaJson from '../../../schemas/recipe.schema.json';
-
-export type Menu = FromSchema<typeof menuSchemaJson>;
-export type Recipe = FromSchema<typeof recipeSchemaJson>;
+export type { MealbookMenuOrRestaurant as Menu } from "./generated/menu";
+export type { MealbookRecipe as Recipe } from "./generated/recipe";

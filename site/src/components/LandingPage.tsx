@@ -1,11 +1,6 @@
 import type { Menu, Recipe } from "../types/schema";
 
-type AppProps = {
-  recipes: Record<string, Recipe>;
-  menus: Record<string, Menu>;
-};
-
-export function App({ recipes, menus }: AppProps) {
+export default function LandingPage() {
   return (
     <main className="app-shell">
       <h1>Mealbook</h1>
@@ -17,10 +12,6 @@ export function App({ recipes, menus }: AppProps) {
           <a href="/menus">Menus</a>
         </li>
       </ul>
-      <h2>Recipes</h2>
-      <pre>{JSON.stringify(recipes, null, 2)}</pre>
-      <h2>Menus</h2>
-      <pre>{JSON.stringify(menus, null, 2)}</pre>
     </main>
   );
 }

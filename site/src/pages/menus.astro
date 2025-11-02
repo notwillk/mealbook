@@ -1,48 +1,9 @@
 ---
-import { App } from '../components/App';
-import path from 'node:path';
-import { readdir, readFile } from 'node:fs/promises';
-import { fileURLToPath } from 'node:url';
-import YAML from 'yaml';
-import type { Menu } from '../types/schema';
+import MenusListingPage from '../components/MenusListingPage';
+import { loadMenus } from '../utils/menus';
 
-const menusDir = fileURLToPath(new URL('../../../menus/', import.meta.url));
-
-async function loadYamlCollection(
-  directory: string,
-  pattern: RegExp,
-  toSlug: (filename: string) => string,
-) {
-  const entries = await readdir(directory, { withFileTypes: true });
-  const files = entries
-    .filter((entry) => entry.isFile() && pattern.test(entry.name))
-    .map((entry) => {
-      const slug = toSlug(entry.name);
-      return {
-        absolutePath: path.join(directory, entry.name),
-        slug,
-      };
-    })
-    .sort((a, b) => a.slug.localeCompare(b.slug));
-
-  const pairs = await Promise.all(
-    files.map(async ({ absolutePath, slug }) => {
-      const content = await readFile(absolutePath, 'utf-8');
-      return [slug, YAML.parse(content)] as const;
-    }),
-  );
-
-  return Object.fromEntries(pairs);
-}
-
-const menus = await loadYamlCollection(
-  menusDir,
-  /\.menu\.ya?ml$/i,
-  (filename) => filename.replace(/\.menu\.ya?ml$/i, ''),
-);
-
+const menus = await loadMenus();
 ---
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -50,6 +11,6 @@ const menus = await loadYamlCollection(
     <title>Menus</title>
   </head>
   <body>
-    <pre>{JSON.stringify(menus, null, 2)}</pre>
+    <MenusListingPage menus={menus} />
   </body>
 </html>

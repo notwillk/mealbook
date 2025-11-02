@@ -1,46 +1,8 @@
 ---
-import { App } from '../components/App';
-import path from 'node:path';
-import { readdir, readFile } from 'node:fs/promises';
-import { fileURLToPath } from 'node:url';
-import YAML from 'yaml';
-import type { Recipe } from '../types/schema';
+import RecipesListingPage from '../components/RecipesListingPage';
+import { loadRecipes } from '../utils/recipes';
 
-const recipesDir = fileURLToPath(new URL('../../../recipes/', import.meta.url));
-
-async function loadYamlCollection(
-  directory: string,
-  pattern: RegExp,
-  toSlug: (filename: string) => string,
-) {
-  const entries = await readdir(directory, { withFileTypes: true });
-  const files = entries
-    .filter((entry) => entry.isFile() && pattern.test(entry.name))
-    .map((entry) => {
-      const slug = toSlug(entry.name);
-      return {
-        absolutePath: path.join(directory, entry.name),
-        slug,
-      };
-    })
-    .sort((a, b) => a.slug.localeCompare(b.slug));
-
-  const pairs = await Promise.all(
-    files.map(async ({ absolutePath, slug }) => {
-      const content = await readFile(absolutePath, 'utf-8');
-      return [slug, YAML.parse(content)] as const;
-    }),
-  );
-
-  return Object.fromEntries(pairs);
-}
-
-const recipes = await loadYamlCollection(
-  recipesDir,
-  /\.recipe\.ya?ml$/i,
-  (filename) => filename.replace(/\.recipe\.ya?ml$/i, ''),
-);
-
+const recipes = await loadRecipes();
 ---
 
 <!DOCTYPE html>
@@ -50,6 +12,6 @@ const recipes = await loadYamlCollection(
     <title>Recipes</title>
   </head>
   <body>
-    <pre>{JSON.stringify(recipes, null, 2)}</pre>
+    <RecipesListingPage recipes={recipes} />
   </body>
 </html>
