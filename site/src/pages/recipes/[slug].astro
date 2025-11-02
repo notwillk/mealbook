@@ -4,14 +4,18 @@ import { readdir, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 import type { Recipe } from '../../types/schema';
+import { resolveRawBase } from '../../utils/git';
 
 type RecipeProps = {
   data: Recipe;
+  url: string;
 };
 
 export async function getStaticPaths() {
   const recipesDir = fileURLToPath(new URL('../../../../recipes/', import.meta.url));
   const entries = await readdir(recipesDir, { withFileTypes: true });
+  const repoRoot = path.resolve(recipesDir, '..');
+  const rawBaseUrl = await resolveRawBase(repoRoot, 'recipes');
   const paths = await Promise.all(
     entries
       .filter((entry) => entry.isFile() && /\.recipe\.ya?ml$/i.test(entry.name))
@@ -21,7 +25,7 @@ export async function getStaticPaths() {
         const data = YAML.parse(content) as Recipe;
         return {
           params: { slug },
-          props: { data },
+          props: { data, url: `${rawBaseUrl}${entry.name}` },
         };
       }),
   );
@@ -29,7 +33,7 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const { data } = Astro.props as RecipeProps;
+const { data, url } = Astro.props as RecipeProps;
 
 const recipeRecord = data as Record<string, unknown>;
 const title =
@@ -48,6 +52,9 @@ const description =
     {description && <meta name="description" content={description} />}
   </head>
   <body>
+    <p>
+      <a href={url}>View raw recipe file</a>
+    </p>
     <pre>{JSON.stringify(data, null, 2)}</pre>
   </body>
 </html>
