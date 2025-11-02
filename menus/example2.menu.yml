@@ -1,0 +1,44 @@
+"@context": https://schema.org
+"@type": Restaurant
+url: http://www.thisisarestaurant.com
+name: The Restaurant
+image: http://www.example.com/image-of-some-restaurant.jpg
+description: This is an example restaurant that serves American cuisine.
+servesCuisine:
+  - American cuisine
+hasMenu:
+  name: Dine-In Menu
+  description: Menu for in-restaurant dining only.
+  hasMenuSection:
+    - name: Dinner
+      description: Dinner dishes
+      image: https://thisisarestaurant.com/dinner_dishes.jpg
+      offers:
+        availabilityEnds: "2017-03-02T08:22:00"
+        availabilityStarts: "2017-03-02T08:22:00"
+      hasMenuSection:
+        - name: Starters
+          description: Appetizers and such
+          image: https://thisisarestaurant.com/starter_dishes.jpg
+          offers:
+            availabilityEnds: "2017-03-02T08:22:00"
+            availabilityStarts: "2017-03-02T08:22:00"
+          hasMenuItem:
+            name: Potato Skins
+            description: Small serving of stuffed potato skins.
+            offers:
+              price: "7.49"
+              priceCurrency: USD
+            suitableForDiet: https://schema.org/GlutenFreeDiet
+        - name: Soups & Salads
+          description: Salads and a few choices of soup
+          image: https://thisisarestaurant.com/soup_and_salad_dishes.jpg
+          offers:
+            availabilityEnds: "2017-03-02T08:22:00"
+            availabilityStarts: "2017-03-02T08:22:00"
+          hasMenuItem:
+            name: Pea Soup
+            description: Creamy pea soup topped with melted cheese and sourdough croutons.
+            offers:
+              price: "3.49"
+              priceCurrency: USD

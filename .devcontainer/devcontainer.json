@@ -3,9 +3,12 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
+  "forwardPorts": [4321],
   "customizations": {
     "vscode": {
       "extensions": [
+        "astro-build.astro-vscode",
+        "esbenp.prettier-vscode",
         "redhat.vscode-yaml"
       ]
     }

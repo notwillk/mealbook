@@ -1,0 +1,53 @@
+---
+import path from 'node:path';
+import { readdir, readFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import YAML from 'yaml';
+import type { Recipe } from '../../types/schema';
+
+type RecipeProps = {
+  data: Recipe;
+};
+
+export async function getStaticPaths() {
+  const recipesDir = fileURLToPath(new URL('../../../../recipes/', import.meta.url));
+  const entries = await readdir(recipesDir, { withFileTypes: true });
+  const paths = await Promise.all(
+    entries
+      .filter((entry) => entry.isFile() && /\.recipe\.ya?ml$/i.test(entry.name))
+      .map(async (entry) => {
+        const slug = entry.name.replace(/\.recipe\.ya?ml$/i, '');
+        const content = await readFile(path.join(recipesDir, entry.name), 'utf-8');
+        const data = YAML.parse(content) as Recipe;
+        return {
+          params: { slug },
+          props: { data },
+        };
+      }),
+  );
+
+  return paths;
+}
+
+const { data } = Astro.props as RecipeProps;
+
+const recipeRecord = data as Record<string, unknown>;
+const title =
+  typeof recipeRecord.name === 'string' && recipeRecord.name.length > 0
+    ? (recipeRecord.name as string)
+    : 'Recipe';
+const description =
+  typeof recipeRecord.description === 'string' ? (recipeRecord.description as string) : '';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+  </head>
+  <body>
+    <pre>{JSON.stringify(data, null, 2)}</pre>
+  </body>
+</html>

@@ -18,5 +18,7 @@
       "fileMatch": ["*.menu.json"],
       "url": "./schemas/menu.schema.json"
     }
-  ]
+  ],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
 }

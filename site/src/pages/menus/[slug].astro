@@ -1,0 +1,53 @@
+---
+import path from 'node:path';
+import { readdir, readFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import YAML from 'yaml';
+import type { Menu } from '../../types/schema';
+
+type MenuProps = {
+  data: Menu;
+};
+
+export async function getStaticPaths() {
+  const menusDir = fileURLToPath(new URL('../../../../menus/', import.meta.url));
+  const entries = await readdir(menusDir, { withFileTypes: true });
+  const paths = await Promise.all(
+    entries
+      .filter((entry) => entry.isFile() && /\.menu\.ya?ml$/i.test(entry.name))
+      .map(async (entry) => {
+        const slug = entry.name.replace(/\.menu\.ya?ml$/i, '');
+        const content = await readFile(path.join(menusDir, entry.name), 'utf-8');
+        const data = YAML.parse(content) as Menu;
+        return {
+          params: { slug },
+          props: { data },
+        };
+      }),
+  );
+
+  return paths;
+}
+
+const { data } = Astro.props as MenuProps;
+
+const menuRecord = data as Record<string, unknown>;
+const title =
+  typeof menuRecord.name === 'string' && menuRecord.name.length > 0
+    ? (menuRecord.name as string)
+    : 'Menu';
+const description =
+  typeof menuRecord.description === 'string' ? (menuRecord.description as string) : '';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+  </head>
+  <body>
+    <pre>{JSON.stringify(data, null, 2)}</pre>
+  </body>
+</html>

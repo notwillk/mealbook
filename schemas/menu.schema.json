@@ -31,7 +31,6 @@
     "Menu": {
       "type": "object",
       "required": [
-        "@type",
         "hasMenuSection"
       ],
       "properties": {
