@@ -1,15 +1,16 @@
-import type { Menu } from "../types/schema";
+import React from "react";
+import type { Menu as MenuSchema } from "../types/schema";
+import Menu from "./Menu";
 
 type Props = {
-  menu: Menu;
+  menu: MenuSchema;
   url: string;
 };
 
 export default function MenuDetailPage({ menu, url }: Props) {
   return (
-    <>
-      <a href={url}>Source</a>
-      <pre>{JSON.stringify(menu, null, 2)}</pre>
-    </>
+    <React.Suspense fallback={null}>
+      <Menu menu={menu} url={url} />
+    </React.Suspense>
   );
 }

@@ -1,3 +1,4 @@
+import React from "react";
 import type { Recipe as RecipeSchema } from "../types/schema";
 import Recipe from "./Recipe";
 
@@ -7,5 +8,9 @@ type Props = {
 };
 
 export default function RecipeDetailPage({ recipe, url }: Props) {
-  return <Recipe recipe={recipe} url={url} />;
+  return (
+    <React.Suspense fallback={null}>
+      <Recipe recipe={recipe} url={url} />
+    </React.Suspense>
+  );
 }

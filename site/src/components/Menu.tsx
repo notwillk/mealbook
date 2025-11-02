@@ -1,12 +1,12 @@
-import type { Recipe } from "../types/schema";
+import type { Menu } from "../types/schema";
 import QrCode from "./QrCode";
 
 type Props = {
-  recipe: Recipe;
+  menu: Menu;
   url: string | null;
 };
 
-export default function Recipe({ recipe, url }: Props) {
+export default function Menu({ menu, url }: Props) {
   return (
     <>
       {url && (
@@ -14,7 +14,7 @@ export default function Recipe({ recipe, url }: Props) {
           <QrCode url={url} ariaLabel={`QR code for ${url}`} />
         </a>
       )}
-      <pre>{JSON.stringify(recipe, null, 2)}</pre>
+      <pre>{JSON.stringify(menu, null, 2)}</pre>
     </>
   );
 }
