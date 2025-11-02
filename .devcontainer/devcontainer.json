@@ -3,6 +3,12 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  // "runArgs": ["--privileged"],
+  // "mounts": ["source=mealbook-dind,target=/var/lib/docker,type=volume"],
+  // "overrideCommand": false,
   "forwardPorts": [4321],
   "customizations": {
     "vscode": {
