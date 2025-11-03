@@ -1,6 +1,7 @@
 ---
 import RecipeDetailPage from '../../components/RecipeDetailPage';
 import type { Props } from '../../utils/recipes';
+import '../../styles/tailwind.css';
 export { getRecipeStaticPaths as getStaticPaths } from '../../utils/recipes';
 
 const { data: recipe, url } = Astro.props as Props;

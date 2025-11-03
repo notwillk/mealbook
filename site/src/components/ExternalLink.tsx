@@ -6,11 +6,16 @@ type Props = {
 };
 
 export default function ExternalLink({ url, text }: Props) {
-  // todo: hide the text when printed, hide the QR code on screen
   return (
-    <a href={url} target="_blank" rel="noreferrer">
-      <span>{text}</span>
-      <QrCode url={url} ariaLabel={`QR code for ${text}`} />
-    </a>
+    <>
+      <a href={url} target="_blank" rel="noreferrer" className="print:hidden">
+        {text}
+      </a>
+      <QrCode
+        className="hidden print:inline-flex"
+        url={url}
+        ariaLabel={`QR code for ${text}`}
+      />
+    </>
   );
 }

@@ -1,6 +1,7 @@
 ---
 import MenuDetailPage from '../../components/MenuDetailPage';
 import type { Props } from '../../utils/menus';
+import '../../styles/tailwind.css';
 export { getMenuStaticPaths as getStaticPaths } from '../../utils/menus';
 
 const { data: menu, url } = Astro.props as Props;

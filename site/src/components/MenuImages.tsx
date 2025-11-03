@@ -14,7 +14,7 @@ export default function MenuImages({ image }: Props) {
   const images = toUniqueList(image);
 
   return images.length > 0 ? (
-    <ul className="menu__images">
+    <ul>
       {images.map((src) => (
         <li key={src}>
           <img src={src} loading="lazy" />

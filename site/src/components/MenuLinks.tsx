@@ -12,7 +12,7 @@ export default function MenuLinks({ rawUrl, sourceUrl }: Props) {
   }
 
   return (
-    <div className="menu__links">
+    <div>
       {rawUrl && <ExternalLink url={rawUrl} text="Menu definition" />}
       {sourceUrl && <ExternalLink url={sourceUrl} text="Menu website" />}
     </div>

@@ -9,7 +9,7 @@ export default function RecipeIngredients({
   recipe: { recipeIngredient },
 }: Props) {
   return recipeIngredient.length > 0 ? (
-    <section className="recipe__ingredients">
+    <section>
       <h2>Ingredients</h2>
       <ul>
         {recipeIngredient.map((ingredient, index) => (

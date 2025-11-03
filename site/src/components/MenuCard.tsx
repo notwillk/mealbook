@@ -1,8 +1,5 @@
 import type { Menu as MenuData } from "../types/schema";
-import type {
-  Menu as SchemaMenu,
-  Restaurant,
-} from "../types/generated/menu";
+import type { Menu as SchemaMenu, Restaurant } from "../types/generated/menu";
 
 type Props = {
   menu: MenuData;
@@ -33,9 +30,10 @@ export default function MenuCard({ menu }: Props) {
     );
 
     return (
-      <span className="menu-card">
+      <span>
         <strong>{menu.name}</strong>
-        {totalSections > 0 && ` · ${totalSections} section${totalSections === 1 ? "" : "s"}`}
+        {totalSections > 0 &&
+          ` · ${totalSections} section${totalSections === 1 ? "" : "s"}`}
       </span>
     );
   }
@@ -44,7 +42,7 @@ export default function MenuCard({ menu }: Props) {
   const name = (menu as SchemaMenu).name ?? "Menu";
 
   return (
-    <span className="menu-card">
+    <span>
       <strong>{name}</strong>
       {sections > 0 && ` · ${sections} section${sections === 1 ? "" : "s"}`}
     </span>

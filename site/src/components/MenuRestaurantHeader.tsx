@@ -12,13 +12,11 @@ function toArray<T>(value: T | T[] | undefined): T[] {
   return Array.isArray(value) ? value : [value];
 }
 
-export default function MenuRestaurantHeader({
-  restaurant,
-}: Props) {
+export default function MenuRestaurantHeader({ restaurant }: Props) {
   const cuisines = toArray(restaurant.servesCuisine);
 
   return (
-    <header className="menu__restaurant">
+    <header>
       <h1>{restaurant.name}</h1>
       {restaurant.description && <p>{restaurant.description}</p>}
       {cuisines.length > 0 && (

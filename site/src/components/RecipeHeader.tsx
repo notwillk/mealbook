@@ -11,7 +11,7 @@ export default function RecipeDetails({
   const authorName = typeof author === "object" ? author.name : author;
   const alternateNames = alternateName ? alternateName : [];
   return (
-    <header className="recipe__header">
+    <header>
       <div>
         <h1>{name}</h1>
         {alternateNames.length > 0 && (

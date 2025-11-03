@@ -20,7 +20,7 @@ export default function RecipeDetails({ recipe }: Props) {
   );
 
   return hasDetails ? (
-    <section className="recipe__details">
+    <section>
       <h2>Details</h2>
       <dl>
         {recipe.recipeCategory && (

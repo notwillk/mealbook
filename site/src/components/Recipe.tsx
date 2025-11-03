@@ -16,7 +16,7 @@ type Props = {
 
 export default function Recipe({ recipe, url }: Props) {
   return (
-    <article className="recipe">
+    <article>
       <RecipeHeader recipe={recipe} />
       <RecipeTiming recipe={recipe} />
       <RecipeNutrition recipe={recipe} />

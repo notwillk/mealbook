@@ -12,7 +12,7 @@ export default function RecipeNutrition({ recipe: { nutrition } }: Props) {
     nutrition?.proteinContent;
 
   return hasNutrition ? (
-    <section className="recipe__nutrition">
+    <section>
       <h2>Nutrition</h2>
       <dl>
         {nutrition.calories && (

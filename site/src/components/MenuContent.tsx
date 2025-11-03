@@ -18,14 +18,11 @@ export default function MenuContent({ menu, headingLevel }: Props) {
   const subsectionLevel = nextLevel(headingLevel);
 
   return (
-    <section className="menu__content">
+    <section>
       <MenuHeader menu={menu} headingLevel={headingLevel} />
       <MenuImages image={menu.image} />
       <MenuOffers offers={menu.offers} headingLevel={subsectionLevel} />
-      <MenuItems
-        items={menu.hasMenuItem}
-        headingLevel={subsectionLevel}
-      />
+      <MenuItems items={menu.hasMenuItem} headingLevel={subsectionLevel} />
       <MenuSections
         sections={menu.hasMenuSection}
         headingLevel={subsectionLevel}

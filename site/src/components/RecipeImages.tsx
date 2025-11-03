@@ -8,7 +8,7 @@ export default function RecipeImages({ recipe: { image } }: Props) {
   const images = image ? new Set(Array.isArray(image) ? image : [image]) : null;
 
   return images && images.size > 0 ? (
-    <ul className="recipe__images">
+    <ul>
       {images.entries().map(([src]) => (
         <li key={src}>
           <img src={src} loading="lazy" />

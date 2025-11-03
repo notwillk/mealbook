@@ -21,7 +21,7 @@ export default function MenuSections({ sections, headingLevel }: Props) {
   }
 
   return (
-    <div className="menu__sections">
+    <div>
       {list.map((section, index) => (
         <MenuSection
           key={`${section.name}-${index}`}

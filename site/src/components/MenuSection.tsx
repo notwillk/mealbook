@@ -1,3 +1,4 @@
+import React from "react";
 import type { MenuSection as SchemaMenuSection } from "../types/generated/menu";
 import MenuImages from "./MenuImages";
 import MenuItems from "./MenuItems";
@@ -20,19 +21,19 @@ function toArray<T>(value: T | T[] | undefined): T[] {
 }
 
 export default function MenuSection({ section, headingLevel }: Props) {
-  const Heading = `h${clampHeading(headingLevel)}` as keyof JSX.IntrinsicElements;
+  const Heading = `h${clampHeading(headingLevel)}`;
   const nextLevel = clampHeading(headingLevel + 1);
   const subSections = toArray(section.hasMenuSection);
 
   return (
-    <section className="menu__section">
-      <Heading>{section.name}</Heading>
+    <section>
+      {React.createElement(Heading, null, section.name)}
       {section.description && <p>{section.description}</p>}
       <MenuImages image={section.image} />
       <MenuOffers offers={section.offers} headingLevel={nextLevel} />
       <MenuItems items={section.hasMenuItem} headingLevel={nextLevel} />
       {subSections.length > 0 && (
-        <div className="menu__subsections">
+        <div>
           {subSections.map((subSection, index) => (
             <MenuSection
               key={`${subSection.name}-${index}`}

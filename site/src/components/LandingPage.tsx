@@ -2,7 +2,7 @@ import { getMenuListingUrl, getRecipeListingUrl } from "../utils/urls";
 
 export default function LandingPage() {
   return (
-    <main className="app-shell">
+    <main>
       <h1>Mealbook</h1>
       <ul>
         <li>

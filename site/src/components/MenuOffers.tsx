@@ -1,3 +1,4 @@
+import React from "react";
 import type { Offer } from "../types/generated/menu";
 
 type Props = {
@@ -18,9 +19,7 @@ function describeOffer(offer: Offer): string {
   if (offer.price !== undefined && offer.price !== "") {
     const price =
       typeof offer.price === "number" ? offer.price.toString() : offer.price;
-    parts.push(
-      offer.priceCurrency ? `${offer.priceCurrency} ${price}` : price
-    );
+    parts.push(offer.priceCurrency ? `${offer.priceCurrency} ${price}` : price);
   }
   if (offer.availabilityStarts || offer.availabilityEnds) {
     const start = offer.availabilityStarts;
@@ -58,7 +57,7 @@ export default function MenuOffers({
 
   if (!showHeading) {
     return (
-      <ul className="menu__offers-list">
+      <ul>
         {offerList.map((text, index) => (
           <li key={`${text}-${index}`}>{text}</li>
         ))}
@@ -66,12 +65,11 @@ export default function MenuOffers({
     );
   }
 
-  const Heading =
-    `h${clampHeading(headingLevel)}` as keyof JSX.IntrinsicElements;
+  const Heading = `h${clampHeading(headingLevel)}`;
 
   return (
-    <section className="menu__offers">
-      <Heading>Offers</Heading>
+    <section>
+      {React.createElement(Heading, null, "Offers")}
       <ul>
         {offerList.map((text, index) => (
           <li key={`${text}-${index}`}>{text}</li>

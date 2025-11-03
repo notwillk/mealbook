@@ -1,3 +1,4 @@
+import React from "react";
 import type { MenuItem } from "../types/generated/menu";
 import MenuItemDetails from "./MenuItem";
 
@@ -24,13 +25,13 @@ export default function MenuItems({ items, headingLevel }: Props) {
     return null;
   }
 
-  const Heading = `h${clampHeading(headingLevel)}` as keyof JSX.IntrinsicElements;
+  const Heading = `h${clampHeading(headingLevel)}`;
 
   const itemHeadingLevel = clampHeading(headingLevel + 1);
 
   return (
-    <section className="menu__items">
-      <Heading>Items</Heading>
+    <section>
+      {React.createElement(Heading, null, "Items")}
       <ul>
         {list.map((item, index) => (
           <MenuItemDetails

@@ -16,7 +16,7 @@ export default function MenuItemNutrition({ nutrition }: Props) {
   }
 
   return (
-    <dl className="menu-item__nutrition">
+    <dl>
       {nutrition.calories && (
         <>
           <dt>Calories</dt>

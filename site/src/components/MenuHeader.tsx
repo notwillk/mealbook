@@ -1,3 +1,4 @@
+import React from "react";
 import type { Menu as SchemaMenu } from "../types/generated/menu";
 
 type Props = {
@@ -13,11 +14,11 @@ export default function MenuHeader({
   menu: { name, description, inLanguage },
   headingLevel,
 }: Props) {
-  const Heading = `h${clampHeading(headingLevel)}` as keyof JSX.IntrinsicElements;
+  const Heading = `h${clampHeading(headingLevel)}`;
 
   return (
-    <header className="menu__header">
-      {name && <Heading>{name}</Heading>}
+    <header>
+      {React.createElement(Heading, null, name)}
       {description && <p>{description}</p>}
       {inLanguage && (
         <dl>

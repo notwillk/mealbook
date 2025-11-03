@@ -8,7 +8,7 @@ type Props = {
 
 export default function Recipes({ recipes }: Props) {
   return (
-    <ul className="recipes">
+    <ul>
       {Object.entries(recipes).map(([slug, recipe]) => (
         <li key={slug}>
           <a href={getRecipeUrl(slug)}>

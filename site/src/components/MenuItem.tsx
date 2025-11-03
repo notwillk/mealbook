@@ -1,3 +1,4 @@
+import React from "react";
 import type { MenuItem as SchemaMenuItem } from "../types/generated/menu";
 import MenuImages from "./MenuImages";
 import MenuItemNutrition from "./MenuItemNutrition";
@@ -13,7 +14,7 @@ function clampHeading(level: number): number {
 }
 
 export default function MenuItem({ item, headingLevel }: Props) {
-  const Heading = `h${clampHeading(headingLevel)}` as keyof JSX.IntrinsicElements;
+  const Heading = `h${clampHeading(headingLevel)}`;
   const diets = item.suitableForDiet
     ? Array.isArray(item.suitableForDiet)
       ? item.suitableForDiet
@@ -21,8 +22,8 @@ export default function MenuItem({ item, headingLevel }: Props) {
     : [];
 
   return (
-    <li className="menu-item">
-      <Heading>{item.name}</Heading>
+    <li>
+      {React.createElement(Heading, null, item.name)}
       {item.description && <p>{item.description}</p>}
       <MenuImages image={item.image} />
       {diets.length > 0 && (
