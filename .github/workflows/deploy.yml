@@ -27,6 +27,7 @@ jobs:
           push: never
           runCmd: |
             set -euo pipefail
+            export ASTRO_BASE_PATH=/mealbook/
             cd site
             pnpm install --frozen-lockfile
             pnpm build
