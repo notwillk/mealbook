@@ -1,7 +1,9 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 
-const isProd = process.env.GITHUB_ACTIONS === "true";
+const base =
+  process.env.ASTRO_BASE_PATH ??
+  (process.env.CI === "true" ? "/mealbook/" : "/");
 
 export default defineConfig({
   integrations: [react()],
@@ -9,5 +11,5 @@ export default defineConfig({
     host: true,
     port: 4321,
   },
-  base: isProd ? "/mealbook/" : "/",
+  base,
 });
