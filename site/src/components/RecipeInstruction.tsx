@@ -1,4 +1,5 @@
 import type { Recipe } from "../types/schema";
+import ExternalLink from "./ExternalLink";
 import QrCode from "./QrCode";
 
 type Props = {
@@ -13,11 +14,7 @@ export default function RecipeInstruction({ instruction }: Props) {
     <li>
       {name && <strong>{name}</strong>}
       <p>{text}</p>
-      {url && (
-        <a href={url} target="_blank" rel="noreferrer">
-          <QrCode url={url} ariaLabel={`QR code for ${url}`} />
-        </a>
-      )}
+      {url && <ExternalLink url={url} text="Instruction website" />}
     </li>
   );
 }

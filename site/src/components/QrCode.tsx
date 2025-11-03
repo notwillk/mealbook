@@ -54,11 +54,11 @@ export default function QrCode({
       margin,
       width: size,
       color: { dark, light },
-    }),
+    })
   );
 
   return (
-    <div
+    <span
       className={className}
       role="img"
       aria-label={ariaLabel ?? `QR code for ${url}`}

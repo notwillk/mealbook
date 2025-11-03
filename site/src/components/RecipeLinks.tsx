@@ -1,4 +1,5 @@
 import type { Recipe } from "../types/schema";
+import ExternalLink from "./ExternalLink";
 import QrCode from "./QrCode";
 
 type Props = {
@@ -16,34 +17,9 @@ export default function RecipeLinks({
 
   return hasLinks ? (
     <>
-      {url && (
-        <a href={url} className="recipe__qr" target="_blank" rel="noreferrer">
-          Recipe definition URL:
-          <QrCode url={url} ariaLabel={`QR code for ${url}`} />
-        </a>
-      )}
-      {recipeUrl && (
-        <a
-          href={recipeUrl}
-          className="recipe__qr"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Inspiration URL:
-          <QrCode url={recipeUrl} ariaLabel={`QR code for ${recipeUrl}`} />
-        </a>
-      )}
-      {authorUrl && (
-        <a
-          href={authorUrl}
-          className="recipe__qr"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Author URL:
-          <QrCode url={authorUrl} ariaLabel={`QR code for ${authorUrl}`} />
-        </a>
-      )}
+      {url && <ExternalLink url={url} text="Recipe sourcecode" />}
+      {recipeUrl && <ExternalLink url={recipeUrl} text="Inspiration website" />}
+      {authorUrl && <ExternalLink url={authorUrl} text="Author website" />}
     </>
   ) : null;
 }
