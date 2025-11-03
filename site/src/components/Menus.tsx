@@ -8,14 +8,12 @@ type Props = {
 
 export default function Menus({ menus }: Props) {
   return (
-    <ul>
+    <div className="grid grid-cols-2 gap-6 w-full p-6">
       {Object.entries(menus).map(([slug, menu]) => (
-        <li key={slug}>
-          <a href={getMenuUrl(slug)}>
-            <MenuCard menu={menu} />
-          </a>
-        </li>
+        <a key={slug} href={getMenuUrl(slug)}>
+          <MenuCard menu={menu} />
+        </a>
       ))}
-    </ul>
+    </div>
   );
 }

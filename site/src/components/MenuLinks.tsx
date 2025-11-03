@@ -12,9 +12,9 @@ export default function MenuLinks({ rawUrl, sourceUrl }: Props) {
   }
 
   return (
-    <div>
-      {rawUrl && <ExternalLink url={rawUrl} text="Menu definition" />}
-      {sourceUrl && <ExternalLink url={sourceUrl} text="Menu website" />}
+    <div className="flex flex-row gap-6 mt-4">
+      {rawUrl && <ExternalLink url={rawUrl} text="Menu sourcecode →" />}
+      {sourceUrl && <ExternalLink url={sourceUrl} text="Menu website →" />}
     </div>
   );
 }

@@ -8,14 +8,12 @@ type Props = {
 
 export default function Recipes({ recipes }: Props) {
   return (
-    <ul>
+    <div className="grid grid-cols-2 gap-6 w-full p-6">
       {Object.entries(recipes).map(([slug, recipe]) => (
-        <li key={slug}>
-          <a href={getRecipeUrl(slug)}>
-            <RecipeCard recipe={recipe} />
-          </a>
-        </li>
+        <a key={slug} href={getRecipeUrl(slug)}>
+          <RecipeCard recipe={recipe} />
+        </a>
       ))}
-    </ul>
+    </div>
   );
 }

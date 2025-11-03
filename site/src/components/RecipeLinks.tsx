@@ -1,6 +1,5 @@
 import type { Recipe } from "../types/schema";
 import ExternalLink from "./ExternalLink";
-import QrCode from "./QrCode";
 
 type Props = {
   recipe: Recipe;
@@ -16,10 +15,10 @@ export default function RecipeLinks({
   const hasLinks = Boolean(url || recipeUrl || authorUrl);
 
   return hasLinks ? (
-    <>
-      {url && <ExternalLink url={url} text="Recipe sourcecode" />}
-      {recipeUrl && <ExternalLink url={recipeUrl} text="Inspiration website" />}
-      {authorUrl && <ExternalLink url={authorUrl} text="Author website" />}
-    </>
+    <div className="flex flex-row gap-6 mt-4">
+      {url && <ExternalLink url={url} text="Recipe sourcecode →" />}
+      {recipeUrl && <ExternalLink url={recipeUrl} text="Inspiration →" />}
+      {authorUrl && <ExternalLink url={authorUrl} text="Author's website →" />}
+    </div>
   ) : null;
 }

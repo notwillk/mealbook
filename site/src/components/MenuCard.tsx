@@ -30,11 +30,13 @@ export default function MenuCard({ menu }: Props) {
     );
 
     return (
-      <span>
-        <strong>{menu.name}</strong>
-        {totalSections > 0 &&
-          ` · ${totalSections} section${totalSections === 1 ? "" : "s"}`}
-      </span>
+      <div className="bg-background rounded-lg bg-green-200 shadow-md border border-border/20 p-6 hover:shadow-lg transition-shadow">
+        <h2 className="text-xl text-green-800 font-bold text-foreground text-balance">
+          {menu.name}
+          {totalSections > 0 &&
+            ` · ${totalSections} section${totalSections === 1 ? "" : "s"}`}
+        </h2>
+      </div>
     );
   }
 
@@ -42,9 +44,11 @@ export default function MenuCard({ menu }: Props) {
   const name = (menu as SchemaMenu).name ?? "Menu";
 
   return (
-    <span>
-      <strong>{name}</strong>
-      {sections > 0 && ` · ${sections} section${sections === 1 ? "" : "s"}`}
-    </span>
+    <div className="bg-background bg-green-200 rounded-lg shadow-md border border-border/20 p-6 hover:shadow-lg transition-shadow">
+      <h2 className="text-xl text-green-800 font-bold text-foreground text-balance">
+        {name}
+        {sections > 0 && ` · ${sections} section${sections === 1 ? "" : "s"}`}
+      </h2>
+    </div>
   );
 }

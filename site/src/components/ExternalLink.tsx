@@ -8,7 +8,12 @@ type Props = {
 export default function ExternalLink({ url, text }: Props) {
   return (
     <>
-      <a href={url} target="_blank" rel="noreferrer" className="print:hidden">
+      <a
+        href={url}
+        target="_blank"
+        rel="noreferrer"
+        className="print:hidden text-primary hover:underline text-sm"
+      >
         {text}
       </a>
       <QrCode
