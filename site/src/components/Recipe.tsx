@@ -1,5 +1,13 @@
 import type { Recipe } from "../types/schema";
-import QrCode from "./QrCode";
+import RecipeDetails from "./RecipeDetails";
+import RecipeHeader from "./RecipeHeader";
+import RecipeImages from "./RecipeImages";
+import RecipeIngredients from "./RecipeIngredients";
+import RecipeInstructions from "./RecipeInstructions";
+import RecipeLinks from "./RecipeLinks";
+import RecipeMetrics from "./RecipeMetrics";
+import RecipeNutrition from "./RecipeNutrition";
+import RecipeTiming from "./RecipeTiming";
 
 type Props = {
   recipe: Recipe;
@@ -8,13 +16,16 @@ type Props = {
 
 export default function Recipe({ recipe, url }: Props) {
   return (
-    <>
-      {url && (
-        <a href={url}>
-          <QrCode url={url} ariaLabel={`QR code for ${url}`} />
-        </a>
-      )}
-      <pre>{JSON.stringify(recipe, null, 2)}</pre>
-    </>
+    <article className="recipe">
+      <RecipeHeader recipe={recipe} />
+      <RecipeTiming recipe={recipe} />
+      <RecipeNutrition recipe={recipe} />
+      <RecipeIngredients recipe={recipe} />
+      <RecipeInstructions recipe={recipe} />
+      <RecipeDetails recipe={recipe} />
+      <RecipeMetrics recipe={recipe} />
+      <RecipeImages recipe={recipe} />
+      <RecipeLinks recipe={recipe} url={url} />
+    </article>
   );
 }
