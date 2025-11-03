@@ -1,4 +1,4 @@
-import type { Menu, Recipe } from "../types/schema";
+import { getMenuListingUrl, getRecipeListingUrl } from "../utils/urls";
 
 export default function LandingPage() {
   return (
@@ -6,10 +6,10 @@ export default function LandingPage() {
       <h1>Mealbook</h1>
       <ul>
         <li>
-          <a href="/recipes">Recipes</a>
+          <a href={getRecipeListingUrl()}>Recipes</a>
         </li>
         <li>
-          <a href="/menus">Menus</a>
+          <a href={getMenuListingUrl()}>Menus</a>
         </li>
       </ul>
     </main>

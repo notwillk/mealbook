@@ -1,4 +1,5 @@
 import type { Menu } from "../types/schema";
+import { getMenuUrl } from "../utils/urls";
 import MenuCard from "./MenuCard";
 
 type Props = {
@@ -10,7 +11,7 @@ export default function Menus({ menus }: Props) {
     <ul className="menus">
       {Object.entries(menus).map(([slug, menu]) => (
         <li key={slug}>
-          <a href={`/menus/${slug}`}>
+          <a href={getMenuUrl(slug)}>
             <MenuCard menu={menu} />
           </a>
         </li>

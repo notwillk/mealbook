@@ -1,5 +1,7 @@
-import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
+import { defineConfig } from "astro/config";
+import react from "@astrojs/react";
+
+const isProd = process.env.GITHUB_ACTIONS === "true";
 
 export default defineConfig({
   integrations: [react()],
@@ -7,4 +9,5 @@ export default defineConfig({
     host: true,
     port: 4321,
   },
+  base: isProd ? "/mealbook/" : "/",
 });

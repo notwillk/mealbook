@@ -1,4 +1,5 @@
 import type { Recipe } from "../types/schema";
+import { getRecipeUrl } from "../utils/urls";
 import RecipeCard from "./RecipeCard";
 
 type Props = {
@@ -10,7 +11,7 @@ export default function Recipes({ recipes }: Props) {
     <ul className="recipes">
       {Object.entries(recipes).map(([slug, recipe]) => (
         <li key={slug}>
-          <a href={`/recipes/${slug}`}>
+          <a href={getRecipeUrl(slug)}>
             <RecipeCard recipe={recipe} />
           </a>
         </li>
